@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QABeginCheckViewController">
+            <connections>
+                <outlet property="beginBtn" destination="m7U-cX-oI1" id="Cdz-3X-6Dn"/>
+                <outlet property="graphViewBg" destination="64q-it-1G8" id="p4V-bN-irC"/>
+                <outlet property="saveBtn" destination="mfX-Dl-6gJ" id="2aJ-sX-83B"/>
+                <outlet property="scanWindow" destination="d2y-cg-jqg" id="BTW-oq-dJh"/>
+                <outlet property="stopBtn" destination="8uH-xB-FBm" id="pWt-su-U0c"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64q-it-1G8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="SvK-kD-kJM"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7U-cX-oI1">
+                    <rect key="frame" x="20" y="583" width="98.5" height="34"/>
+                    <color key="backgroundColor" red="0.30018374320000002" green="0.87274843449999995" blue="0.99653691050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="lon-vd-udu"/>
+                    </constraints>
+                    <state key="normal" title="开始检测"/>
+                    <state key="selected" title="开始检测">
+                        <color key="titleColor" red="1" green="0.99607843137254903" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="17"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkBtnClick:" destination="-1" eventType="touchUpInside" id="yeN-Vl-Bum"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uH-xB-FBm">
+                    <rect key="frame" x="138.5" y="583" width="98" height="34"/>
+                    <color key="backgroundColor" red="0.30018374320000002" green="0.87274843449999995" blue="0.99653691050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="停止检测"/>
+                    <state key="selected">
+                        <color key="titleColor" red="1" green="0.99607843139999996" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="17"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkBtnClick:" destination="-1" eventType="touchUpInside" id="8gp-2j-JcP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfX-Dl-6gJ">
+                    <rect key="frame" x="256.5" y="583" width="98.5" height="34"/>
+                    <color key="backgroundColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="保存结果"/>
+                    <state key="disabled" title="保存结果"/>
+                    <state key="selected" title="保存结果">
+                        <color key="titleColor" red="1" green="0.99607843139999996" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="17"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkBtnClick:" destination="-1" eventType="touchUpInside" id="2sR-iS-hTg"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_people" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-CI-MrC">
+                    <rect key="frame" x="111.5" y="301" width="152" height="262"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jyj-CI-MrC" secondAttribute="height" multiplier="76:131" id="6qe-os-OmY"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="262" id="Nvo-5H-tSk"/>
+                    </constraints>
+                </imageView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2y-cg-jqg">
+                    <rect key="frame" x="0.0" y="150" width="375" height="413"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="262" id="XE5-HJ-NSs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mfX-Dl-6gJ" secondAttribute="trailing" constant="20" id="0jX-nH-OeK"/>
+                <constraint firstItem="8uH-xB-FBm" firstAttribute="height" secondItem="m7U-cX-oI1" secondAttribute="height" id="2Wn-3s-AFF"/>
+                <constraint firstAttribute="bottom" secondItem="m7U-cX-oI1" secondAttribute="bottom" constant="50" id="FyI-aQ-gOL"/>
+                <constraint firstItem="mfX-Dl-6gJ" firstAttribute="top" secondItem="d2y-cg-jqg" secondAttribute="bottom" constant="20" id="G8J-EX-eek"/>
+                <constraint firstItem="mfX-Dl-6gJ" firstAttribute="height" secondItem="m7U-cX-oI1" secondAttribute="height" id="Jgx-4q-wS0"/>
+                <constraint firstAttribute="bottom" secondItem="8uH-xB-FBm" secondAttribute="bottom" constant="50" id="KR2-pX-bgf"/>
+                <constraint firstItem="8uH-xB-FBm" firstAttribute="width" secondItem="m7U-cX-oI1" secondAttribute="width" id="L2I-eY-mEW"/>
+                <constraint firstItem="mfX-Dl-6gJ" firstAttribute="top" secondItem="jyj-CI-MrC" secondAttribute="bottom" constant="20" id="O7y-MU-q7Z"/>
+                <constraint firstItem="d2y-cg-jqg" firstAttribute="top" secondItem="64q-it-1G8" secondAttribute="bottom" id="QAi-dx-3Ne"/>
+                <constraint firstItem="mfX-Dl-6gJ" firstAttribute="leading" secondItem="8uH-xB-FBm" secondAttribute="trailing" constant="20" id="Qdc-aL-l86"/>
+                <constraint firstItem="8uH-xB-FBm" firstAttribute="leading" secondItem="m7U-cX-oI1" secondAttribute="trailing" constant="20" id="WrK-2Q-YYT"/>
+                <constraint firstItem="m7U-cX-oI1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="b0t-vS-MKM"/>
+                <constraint firstItem="jyj-CI-MrC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="64q-it-1G8" secondAttribute="bottom" id="eQU-Sd-MQQ"/>
+                <constraint firstItem="mfX-Dl-6gJ" firstAttribute="width" secondItem="m7U-cX-oI1" secondAttribute="width" id="fJE-Hw-V9Z"/>
+                <constraint firstItem="64q-it-1G8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j0A-nf-fWi"/>
+                <constraint firstItem="d2y-cg-jqg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lZF-f2-GX7"/>
+                <constraint firstItem="64q-it-1G8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qG2-oO-7PG"/>
+                <constraint firstAttribute="bottom" secondItem="mfX-Dl-6gJ" secondAttribute="bottom" constant="50" id="s5s-RO-nV8"/>
+                <constraint firstAttribute="trailing" secondItem="d2y-cg-jqg" secondAttribute="trailing" id="uOv-eP-hU4"/>
+                <constraint firstItem="jyj-CI-MrC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wd7-d5-xzk"/>
+                <constraint firstAttribute="trailing" secondItem="64q-it-1G8" secondAttribute="trailing" id="zV6-jW-Txo"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="55.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="check_people" width="153" height="262"/>
+    </resources>
+</document>

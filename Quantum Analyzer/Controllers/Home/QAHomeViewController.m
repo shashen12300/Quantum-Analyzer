@@ -27,6 +27,7 @@
     [self initTitleLabel:@"首页"];
     self.scrollView.contentSize = CGSizeMake(DScreenWidth, DScreenHeight);
     self.nameLabel.text = @"Quantum Resonant \n Magnetic Analyzer";
+    //提交git
 }
 
 - (IBAction)userBtnClick:(UIButton *)sender {

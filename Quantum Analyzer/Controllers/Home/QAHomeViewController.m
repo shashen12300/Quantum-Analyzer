@@ -48,7 +48,7 @@
         deleteVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:deleteVC animated:YES];
     }
-    //你好我想测试使用
+
 }
 
 - (void)didReceiveMemoryWarning {

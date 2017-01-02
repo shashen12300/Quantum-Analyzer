@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     bgImageView.clipsToBounds = YES;
     bgImageView.contentMode = UIViewContentModeScaleToFill;
     [_graphViewBg addSubview:bgImageView];
-    _graphView = [[GraphView alloc]initWithFrame:self.graphViewBg.bounds];
+    _graphView = [[GraphView alloc]initWithFrame:CGRectMake(0, 0, DScreenWidth+5, HEIGHT(_graphViewBg))];
     [_graphView setBackgroundColor:[UIColor clearColor]];
     [_graphView setSpacing:10];
     [_graphView setFill:NO];
@@ -96,9 +96,9 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         [alertView show];
         return;
     }else if (!_t.activePeripheral) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//        [alertView show];
-//        return;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+        return;
     }
     if (sender.selected == YES) {
         return;
@@ -194,8 +194,10 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         if (value < 20000) {
             _buttonType = ContinueCheck;
             [[QABLEAdapter sharedBLEAdapter] continueCheck];
+            [_timer setFireDate:[NSDate distantPast]];
             [self resumeAnimation];
             _scanNetImageView.hidden = NO;
+
 
 
         }

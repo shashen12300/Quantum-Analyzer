@@ -22,13 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"添加设备";
+    self.title = @"搜索设备";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
-        [self connectToDevice];
-    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(connectToDevice)];
+//    self.tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+//        [self connectToDevice];
+//    }];
     t = [QABLEAdapter sharedBLEAdapter];
     t.configViewController = self;
     [t controlSetup:1];
@@ -50,7 +51,7 @@
 //    if (t.activePeripheral) if(t.activePeripheral.state) [[t CM] cancelPeripheralConnection:[t activePeripheral]];
 //    if (t.peripherals) t.peripherals = nil;
     [t findBLEPeripherals:2];
-    [NSTimer scheduledTimerWithTimeInterval:(float)2.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:(float)1.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
 }
 
 // Called when scan period is over to connect to the first found peripheral

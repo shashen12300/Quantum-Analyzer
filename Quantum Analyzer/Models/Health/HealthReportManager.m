@@ -84,7 +84,7 @@ static HealthReportManager *_healthReportManager = nil;
     return htmlStr;
 }
 
-/* 心脑血管检测报告*/
+/* 检测报告*/
 - (NSString *)getCheckReportHtml:(NSString *)mainItemID {
     NSString *htmlStr = @"";
     Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];

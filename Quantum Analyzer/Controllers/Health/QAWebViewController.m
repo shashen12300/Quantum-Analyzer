@@ -22,7 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = _reportList.reportName;
+    if (_reportList) {
+        self.title = _reportList.reportName;
+    }
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, DScreenWidth, DScreenHeight)];
 
     [self.view addSubview:webView];

@@ -12,8 +12,8 @@
 
 + (HealthReportManager *) sharedManager;
 
-/* 心脑血管检测报告*/
-- (NSString *)getCheckReport;
 - (NSString *)getCheckReportHtml:(NSString *)mainItemID;
+
 - (NSString *)saveUserDataToSqlite:(NSString *)time;
+
 @end

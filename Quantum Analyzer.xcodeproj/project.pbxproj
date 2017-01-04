@@ -11,6 +11,7 @@
 		A02BE5E31DFCFC6100398D42 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E21DFCFC6100398D42 /* CoreBluetooth.framework */; };
 		A02BE5E51DFCFC6E00398D42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */; };
 		A02BE5EE1DFD024300398D42 /* QABLEAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BE5ED1DFD024300398D42 /* QABLEAdapter.m */; };
+		A04353301E1C0A1800A9BDF8 /* 量子检测综合报告单.htm in Resources */ = {isa = PBXBuildFile; fileRef = A043532F1E1C0A1800A9BDF8 /* 量子检测综合报告单.htm */; };
 		A059F8741DFEA3930065BADE /* QABeginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A059F8721DFEA3930065BADE /* QABeginCheckViewController.m */; };
 		A059F8751DFEA3930065BADE /* QABeginCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A059F8731DFEA3930065BADE /* QABeginCheckViewController.xib */; };
 		A06FA2D61E163EA800C661E7 /* Mark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29A1E163EA800C661E7 /* Mark.jpg */; };
@@ -65,11 +66,14 @@
 		A06FA3071E163EA800C661E7 /* 辅酶检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2CB1E163EA800C661E7 /* 辅酶检测报告.htm */; };
 		A06FA3081E163EA800C661E7 /* 过敏检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2CC1E163EA800C661E7 /* 过敏检测报告.htm */; };
 		A06FA3091E163EA800C661E7 /* 重金属检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2CD1E163EA800C661E7 /* 重金属检测报告.htm */; };
-		A06FA30A1E163EA800C661E7 /* 量子弱磁综合报告单.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2CE1E163EA800C661E7 /* 量子弱磁综合报告单.htm */; };
 		A06FA30B1E163EA800C661E7 /* 风湿骨病检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2CF1E163EA800C661E7 /* 风湿骨病检测报告.htm */; };
 		A06FA30C1E163EA800C661E7 /* 骨密度检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2D01E163EA800C661E7 /* 骨密度检测报告.htm */; };
 		A06FA30D1E163EA800C661E7 /* 骨生长指数检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2D11E163EA800C661E7 /* 骨生长指数检测报告.htm */; };
 		A06FA30E1E163EA800C661E7 /* 骨病检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2D21E163EA800C661E7 /* 骨病检测报告.htm */; };
+		A06FFB101E1B7D12006821E9 /* CollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB0F1E1B7D12006821E9 /* CollectModel.m */; };
+		A06FFB151E1B9094006821E9 /* TblSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB121E1B9094006821E9 /* TblSuggest.m */; };
+		A06FFB161E1B9094006821E9 /* TblSuggestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB141E1B9094006821E9 /* TblSuggestManager.m */; };
+		A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */; };
 		A09F8C721DF513DF00B3C120 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A09F8C711DF513DF00B3C120 /* Podfile */; };
 		A09F8C751DF5184100B3C120 /* QAGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8C741DF5184100B3C120 /* QAGuideViewController.m */; };
 		A09F8C781DF576FE00B3C120 /* GifView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8C771DF576FE00B3C120 /* GifView.m */; };
@@ -140,6 +144,7 @@
 		A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A02BE5EC1DFD024300398D42 /* QABLEAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QABLEAdapter.h; sourceTree = "<group>"; };
 		A02BE5ED1DFD024300398D42 /* QABLEAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QABLEAdapter.m; sourceTree = "<group>"; };
+		A043532F1E1C0A1800A9BDF8 /* 量子检测综合报告单.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "量子检测综合报告单.htm"; sourceTree = "<group>"; };
 		A059F8711DFEA3930065BADE /* QABeginCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QABeginCheckViewController.h; sourceTree = "<group>"; };
 		A059F8721DFEA3930065BADE /* QABeginCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QABeginCheckViewController.m; sourceTree = "<group>"; };
 		A059F8731DFEA3930065BADE /* QABeginCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QABeginCheckViewController.xib; sourceTree = "<group>"; };
@@ -195,11 +200,17 @@
 		A06FA2CB1E163EA800C661E7 /* 辅酶检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "辅酶检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2CC1E163EA800C661E7 /* 过敏检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "过敏检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2CD1E163EA800C661E7 /* 重金属检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "重金属检测报告.htm"; sourceTree = "<group>"; };
-		A06FA2CE1E163EA800C661E7 /* 量子弱磁综合报告单.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "量子弱磁综合报告单.htm"; sourceTree = "<group>"; };
 		A06FA2CF1E163EA800C661E7 /* 风湿骨病检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "风湿骨病检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2D01E163EA800C661E7 /* 骨密度检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "骨密度检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2D11E163EA800C661E7 /* 骨生长指数检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "骨生长指数检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2D21E163EA800C661E7 /* 骨病检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "骨病检测报告.htm"; sourceTree = "<group>"; };
+		A06FFB0E1E1B7D12006821E9 /* CollectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectModel.h; sourceTree = "<group>"; };
+		A06FFB0F1E1B7D12006821E9 /* CollectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectModel.m; sourceTree = "<group>"; };
+		A06FFB111E1B9094006821E9 /* TblSuggest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TblSuggest.h; sourceTree = "<group>"; };
+		A06FFB121E1B9094006821E9 /* TblSuggest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TblSuggest.m; sourceTree = "<group>"; };
+		A06FFB131E1B9094006821E9 /* TblSuggestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TblSuggestManager.h; sourceTree = "<group>"; };
+		A06FFB141E1B9094006821E9 /* TblSuggestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TblSuggestManager.m; sourceTree = "<group>"; };
+		A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TblSuggest.sqlite; sourceTree = "<group>"; };
 		A09F8C711DF513DF00B3C120 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A09F8C731DF5184100B3C120 /* QAGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAGuideViewController.h; sourceTree = "<group>"; };
 		A09F8C741DF5184100B3C120 /* QAGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAGuideViewController.m; sourceTree = "<group>"; };
@@ -388,11 +399,11 @@
 				A06FA2CB1E163EA800C661E7 /* 辅酶检测报告.htm */,
 				A06FA2CC1E163EA800C661E7 /* 过敏检测报告.htm */,
 				A06FA2CD1E163EA800C661E7 /* 重金属检测报告.htm */,
-				A06FA2CE1E163EA800C661E7 /* 量子弱磁综合报告单.htm */,
 				A06FA2CF1E163EA800C661E7 /* 风湿骨病检测报告.htm */,
 				A06FA2D01E163EA800C661E7 /* 骨密度检测报告.htm */,
 				A06FA2D11E163EA800C661E7 /* 骨生长指数检测报告.htm */,
 				A06FA2D21E163EA800C661E7 /* 骨病检测报告.htm */,
+				A043532F1E1C0A1800A9BDF8 /* 量子检测综合报告单.htm */,
 			);
 			path = "QMAnalyzer_20160614-男";
 			sourceTree = "<group>";
@@ -404,6 +415,7 @@
 				A0E198871E14F9D60059E966 /* ReportList.sqlite */,
 				A0E198881E14F9D60059E966 /* TblMeasData.sqlite */,
 				A0E198891E14F9D60059E966 /* TblSubItemCase.sqlite */,
+				A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -678,6 +690,8 @@
 			children = (
 				A0A41D371DFA6E15008F0682 /* HealthModel.h */,
 				A0A41D381DFA6E15008F0682 /* HealthModel.m */,
+				A06FFB0E1E1B7D12006821E9 /* CollectModel.h */,
+				A06FFB0F1E1B7D12006821E9 /* CollectModel.m */,
 				A0E1986E1E14F9A50059E966 /* HealthReportManager.h */,
 				A0E1986F1E14F9A50059E966 /* HealthReportManager.m */,
 				A0E198701E14F9A50059E966 /* ReportContentData.h */,
@@ -696,6 +710,10 @@
 		A0E198741E14F9BC0059E966 /* SqliteModel */ = {
 			isa = PBXGroup;
 			children = (
+				A06FFB111E1B9094006821E9 /* TblSuggest.h */,
+				A06FFB121E1B9094006821E9 /* TblSuggest.m */,
+				A06FFB131E1B9094006821E9 /* TblSuggestManager.h */,
+				A06FFB141E1B9094006821E9 /* TblSuggestManager.m */,
 				A0E198751E14F9BC0059E966 /* ReportList.h */,
 				A0E198761E14F9BC0059E966 /* ReportList.m */,
 				A0E198771E14F9BC0059E966 /* ReportListManager.h */,
@@ -797,6 +815,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */,
 				A06FA2D61E163EA800C661E7 /* Mark.jpg in Resources */,
 				A06FA3021E163EA800C661E7 /* 胶原蛋白检测报告.htm in Resources */,
 				A06FA2FF1E163EA800C661E7 /* 胃肠功能检测报告.htm in Resources */,
@@ -819,7 +838,6 @@
 				A0A41D361DFA662A008F0682 /* template.html in Resources */,
 				A0B6A5411DF82B36008205DC /* QAManageTableViewCell.xib in Resources */,
 				A06FA2F61E163EA800C661E7 /* 皮肤检测报告.htm in Resources */,
-				A06FA30A1E163EA800C661E7 /* 量子弱磁综合报告单.htm in Resources */,
 				A06FA2DE1E163EA800C661E7 /* YC06.gif in Resources */,
 				A0DDEB271DF96AB400C0DB8B /* QADeleteViewController.xib in Resources */,
 				A06FA3081E163EA800C661E7 /* 过敏检测报告.htm in Resources */,
@@ -838,6 +856,7 @@
 				A06FA30B1E163EA800C661E7 /* 风湿骨病检测报告.htm in Resources */,
 				A0C768F51DF4085A009380D6 /* QAAddViewController.xib in Resources */,
 				A06FA2E11E163EA800C661E7 /* YC09.gif in Resources */,
+				A04353301E1C0A1800A9BDF8 /* 量子检测综合报告单.htm in Resources */,
 				A06FA3091E163EA800C661E7 /* 重金属检测报告.htm in Resources */,
 				A059F8751DFEA3930065BADE /* QABeginCheckViewController.xib in Resources */,
 				A06FA30E1E163EA800C661E7 /* 骨病检测报告.htm in Resources */,
@@ -957,10 +976,12 @@
 				A0C768BA1DF3F2CB009380D6 /* main.m in Sources */,
 				A0B6A5321DF7C6B1008205DC /* QAWebViewController.m in Sources */,
 				A0E198841E14F9BC0059E966 /* TblMeasDataManager.m in Sources */,
+				A06FFB161E1B9094006821E9 /* TblSuggestManager.m in Sources */,
 				A0B6A52F1DF7C1F7008205DC /* DocumentFile.m in Sources */,
 				A09F8C781DF576FE00B3C120 /* GifView.m in Sources */,
 				A0DDEB211DF95B9D00C0DB8B /* QAHistoryTableViewCell.m in Sources */,
 				A0C768E61DF4070B009380D6 /* QABaseViewController.m in Sources */,
+				A06FFB101E1B7D12006821E9 /* CollectModel.m in Sources */,
 				A0B6A5361DF80520008205DC /* QACreatUserViewController.m in Sources */,
 				A0B6A4541DF7B6AC008205DC /* QAHealthTableViewCell.m in Sources */,
 				A0E198911E14FA710059E966 /* DataBase.m in Sources */,
@@ -973,6 +994,7 @@
 				A0C768DD1DF3F994009380D6 /* CommonCore.m in Sources */,
 				A0DDEB0A1DF9040B00C0DB8B /* UIViewController+KeyboardAnimation.m in Sources */,
 				A0E198851E14F9BC0059E966 /* TblSubItemCase.m in Sources */,
+				A06FFB151E1B9094006821E9 /* TblSuggest.m in Sources */,
 				A0C768F41DF4085A009380D6 /* QAAddViewController.m in Sources */,
 				A0E198811E14F9BC0059E966 /* ReportList.m in Sources */,
 				A0E198861E14F9BC0059E966 /* TblSubItemCaseManager.m in Sources */,

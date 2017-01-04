@@ -60,7 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return _sourceArray.count;
+    return _sourceArray.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,17 +70,28 @@
     if (!cell) {
         cell = [[QAHealthTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    ReportList *reportList = _sourceArray[indexPath.row];
-    cell.textLabel.text = reportList.reportName;
+    if (indexPath.row == _sourceArray.count) {
+        cell.textLabel.text = @"量子检测综合报告单";
+    }else {
+        ReportList *reportList = _sourceArray[indexPath.row];
+        cell.textLabel.text = reportList.reportName;
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QAWebViewController *webViewVC = [[QAWebViewController alloc] init];
-    ReportList *reportList = _sourceArray[indexPath.row];
-    webViewVC.reportList = reportList;
+
     if (_dictionary) {
-        webViewVC.htmlString = _dictionary[reportList.reportName];
+        if (indexPath.row == _sourceArray.count) {
+            webViewVC.htmlString = _dictionary[@"量子检测综合报告单"];
+            webViewVC.title = @"量子检测综合报告单";
+
+        }else {
+            ReportList *reportList = _sourceArray[indexPath.row];
+            webViewVC.reportList = reportList;
+            webViewVC.htmlString = _dictionary[reportList.reportName];
+        }
     }
     webViewVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:webViewVC animated:YES];

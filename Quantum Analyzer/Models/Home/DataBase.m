@@ -95,9 +95,9 @@ static DataBase *_DBCtl = nil;
     // 初始化数据表
     NSString *personSql = @"CREATE TABLE 'person' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'person_id' VARCHAR(255),'person_name' VARCHAR(255),'person_date' VARCHAR(255),'person_number' VARCHAR(255),'person_sex' VARCHAR(255),'person_stature' VARCHAR(255),'person_weight' VARCHAR(255),'person_phoneNumber' VARCHAR(255),'person_remark' VARCHAR(255),'person_health' VARCHAR(255),'person_age' VARCHAR(255)) ";
     NSString *recordSql = @"CREATE TABLE 'record' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'own_id' VARCHAR(255),'record_id' VARCHAR(255),'record_time' VARCHAR(255),'record_report' TEXT) ";
-    
     [_db executeUpdate:personSql];
     [_db executeUpdate:recordSql];
+
     
     
     [_db close];
@@ -198,6 +198,7 @@ static DataBase *_DBCtl = nil;
     person.remark = [res stringForColumn:@"person_remark"];
     person.health = [res stringForColumn:@"person_health"];
     person.age = [res stringForColumn:@"person_age"];
+    [_db close];
     return person;
 }
 /* 获取当前用户Person*/

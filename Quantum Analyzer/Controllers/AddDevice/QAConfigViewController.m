@@ -35,7 +35,6 @@
     [t controlSetup:1];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [NSTimer scheduledTimerWithTimeInterval:(float)1.0 target:self selector:@selector(connectToDevice) userInfo:nil repeats:NO];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,6 +49,7 @@
 //    [self.tableView reloadData];
 //    if (t.activePeripheral) if(t.activePeripheral.state) [[t CM] cancelPeripheralConnection:[t activePeripheral]];
 //    if (t.peripherals) t.peripherals = nil;
+    
     [t findBLEPeripherals:2];
     [NSTimer scheduledTimerWithTimeInterval:(float)1.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
 }
@@ -65,20 +65,28 @@
     }
     // stop progress spinner
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    [self.tableView.mj_header endRefreshing];
+//    [self.tableView.mj_header endRefreshing];
 }
 
 - (void)insertScannedperipherals
 {
 
-    for(int i=0; i < [t.peripherals count]; i++)
-    {
+//    for(int i=0; i < [t.peripherals count]; i++)
+//    {
 //        [self.sourceArray insertObject:[[t peripherals] objectAtIndex:i] atIndex:0];
 //        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        self.sourceArray = [t peripherals];
+//
+//    }
+    
+    NSMutableArray *array = [t peripherals];
+        [_sourceArray removeAllObjects];
+        for (CBPeripheral *object in array) {
+            if (object.name) {
+                [self.sourceArray addObject:object];
+            }
+        }
         [self.tableView reloadData];
-    }
 }
 
 

@@ -10,6 +10,7 @@
 #import "QAHistoryTableViewCell.h"
 #import "DataBase.h"
 #import "QAHealthViewController.h"
+#import "QANewHealthViewController.h"
 
 @interface QAHistoryViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -62,7 +63,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Record *record = _sourceArray[indexPath.row];
-    QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
+    QANewHealthViewController *healthVC = [[QANewHealthViewController alloc] init];
+//    QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
     healthVC.report = record.report;
     [self.navigationController pushViewController:healthVC animated:YES];
 }

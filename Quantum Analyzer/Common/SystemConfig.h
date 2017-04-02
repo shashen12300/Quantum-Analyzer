@@ -22,9 +22,9 @@
 /** 红色字体*/
 #define redFontColor        UIColorFromRGB(0xe62717)
 /** 左边距*/
-#define leftMargin          10
+#define leftMargin1          10
 /** 右边距*/
-#define rightMargin         10
+#define rightMargin1         10
 /** 中间距*/
 #define centerMargin        10
 /** 红色按钮颜色*/
@@ -58,4 +58,10 @@
 #define CurrentUserID       @"currentUserID"
 /* 头像宽度*/
 #define HeadPictureWidth    35
+/* 密码*/
+#define PassWord            @"passWord"
+/* 检测时间*/
+#define CheckTime           @"checkTime"
+/* 检测时间*/
+
 #endif /* SystemConfig_h */

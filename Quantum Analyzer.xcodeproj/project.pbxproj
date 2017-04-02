@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7AD3379C0CEE01ADBEE5E53E /* libPods-Quantum Analyzer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82DE8A9AFF128D7210D3E43 /* libPods-Quantum Analyzer.a */; };
+		A00AE7151E8D54150009D5DF /* end.gif in Resources */ = {isa = PBXBuildFile; fileRef = A00AE7131E8D54150009D5DF /* end.gif */; };
+		A00AE7161E8D54150009D5DF /* QQ20170328-230311.png in Resources */ = {isa = PBXBuildFile; fileRef = A00AE7141E8D54150009D5DF /* QQ20170328-230311.png */; };
+		A013B49B1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm in Resources */ = {isa = PBXBuildFile; fileRef = A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */; };
 		A02BE5E31DFCFC6100398D42 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E21DFCFC6100398D42 /* CoreBluetooth.framework */; };
 		A02BE5E51DFCFC6E00398D42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */; };
 		A02BE5EE1DFD024300398D42 /* QABLEAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BE5ED1DFD024300398D42 /* QABLEAdapter.m */; };
@@ -74,6 +77,17 @@
 		A06FFB151E1B9094006821E9 /* TblSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB121E1B9094006821E9 /* TblSuggest.m */; };
 		A06FFB161E1B9094006821E9 /* TblSuggestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB141E1B9094006821E9 /* TblSuggestManager.m */; };
 		A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */; };
+		A09102AF1E90B07E00482C03 /* man_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102A91E90B07E00482C03 /* man_1.mp4 */; };
+		A09102B01E90B07E00482C03 /* man_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AA1E90B07E00482C03 /* man_2.mp4 */; };
+		A09102B11E90B07E00482C03 /* man_3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AB1E90B07E00482C03 /* man_3.mp4 */; };
+		A09102B21E90B07E00482C03 /* nv_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AC1E90B07E00482C03 /* nv_1.mp4 */; };
+		A09102B31E90B07E00482C03 /* nv_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AD1E90B07E00482C03 /* nv_2.mp4 */; };
+		A09102B41E90B07E00482C03 /* nv_3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AE1E90B07E00482C03 /* nv_3.mp4 */; };
+		A09102B81E90B99600482C03 /* QANewHealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09102B61E90B99600482C03 /* QANewHealthViewController.m */; };
+		A09102B91E90B99600482C03 /* QANewHealthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09102B71E90B99600482C03 /* QANewHealthViewController.xib */; };
+		A09102BD1E90CF9900482C03 /* QANewHealthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09102BB1E90CF9900482C03 /* QANewHealthCollectionViewCell.m */; };
+		A09102BE1E90CF9900482C03 /* QANewHealthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09102BC1E90CF9900482C03 /* QANewHealthCollectionViewCell.xib */; };
+		A098B5251E28C46100C0B761 /* QAPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A098B5231E28C46100C0B761 /* QAPasswordViewController.m */; };
 		A09F8C721DF513DF00B3C120 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A09F8C711DF513DF00B3C120 /* Podfile */; };
 		A09F8C751DF5184100B3C120 /* QAGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8C741DF5184100B3C120 /* QAGuideViewController.m */; };
 		A09F8C781DF576FE00B3C120 /* GifView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8C771DF576FE00B3C120 /* GifView.m */; };
@@ -140,6 +154,9 @@
 
 /* Begin PBXFileReference section */
 		2417A77F3DD4FB496345F8BF /* Pods-Quantum Analyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.debug.xcconfig"; sourceTree = "<group>"; };
+		A00AE7131E8D54150009D5DF /* end.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = end.gif; sourceTree = "<group>"; };
+		A00AE7141E8D54150009D5DF /* QQ20170328-230311.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ20170328-230311.png"; sourceTree = "<group>"; };
+		A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本.htm"; sourceTree = "<group>"; };
 		A02BE5E21DFCFC6100398D42 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A02BE5EC1DFD024300398D42 /* QABLEAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QABLEAdapter.h; sourceTree = "<group>"; };
@@ -211,6 +228,20 @@
 		A06FFB131E1B9094006821E9 /* TblSuggestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TblSuggestManager.h; sourceTree = "<group>"; };
 		A06FFB141E1B9094006821E9 /* TblSuggestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TblSuggestManager.m; sourceTree = "<group>"; };
 		A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TblSuggest.sqlite; sourceTree = "<group>"; };
+		A09102A91E90B07E00482C03 /* man_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_1.mp4; sourceTree = "<group>"; };
+		A09102AA1E90B07E00482C03 /* man_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_2.mp4; sourceTree = "<group>"; };
+		A09102AB1E90B07E00482C03 /* man_3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_3.mp4; sourceTree = "<group>"; };
+		A09102AC1E90B07E00482C03 /* nv_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nv_1.mp4; sourceTree = "<group>"; };
+		A09102AD1E90B07E00482C03 /* nv_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nv_2.mp4; sourceTree = "<group>"; };
+		A09102AE1E90B07E00482C03 /* nv_3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nv_3.mp4; sourceTree = "<group>"; };
+		A09102B51E90B99600482C03 /* QANewHealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QANewHealthViewController.h; sourceTree = "<group>"; };
+		A09102B61E90B99600482C03 /* QANewHealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QANewHealthViewController.m; sourceTree = "<group>"; };
+		A09102B71E90B99600482C03 /* QANewHealthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QANewHealthViewController.xib; sourceTree = "<group>"; };
+		A09102BA1E90CF9900482C03 /* QANewHealthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QANewHealthCollectionViewCell.h; sourceTree = "<group>"; };
+		A09102BB1E90CF9900482C03 /* QANewHealthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QANewHealthCollectionViewCell.m; sourceTree = "<group>"; };
+		A09102BC1E90CF9900482C03 /* QANewHealthCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QANewHealthCollectionViewCell.xib; sourceTree = "<group>"; };
+		A098B5221E28C46100C0B761 /* QAPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAPasswordViewController.h; sourceTree = "<group>"; };
+		A098B5231E28C46100C0B761 /* QAPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAPasswordViewController.m; sourceTree = "<group>"; };
 		A09F8C711DF513DF00B3C120 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A09F8C731DF5184100B3C120 /* QAGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAGuideViewController.h; sourceTree = "<group>"; };
 		A09F8C741DF5184100B3C120 /* QAGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAGuideViewController.m; sourceTree = "<group>"; };
@@ -317,6 +348,7 @@
 		A0E1988E1E14FA710059E966 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		A0E1988F1E14FA710059E966 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		A0E198901E14FA710059E966 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		D58EA15D6845FC5E9BBB4663 /* Pods-Quantum Analyzer.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		D82DE8A9AFF128D7210D3E43 /* libPods-Quantum Analyzer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Quantum Analyzer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F213BB477048F801B8105595 /* Pods-Quantum Analyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,8 +372,18 @@
 			children = (
 				2417A77F3DD4FB496345F8BF /* Pods-Quantum Analyzer.debug.xcconfig */,
 				F213BB477048F801B8105595 /* Pods-Quantum Analyzer.release.xcconfig */,
+				D58EA15D6845FC5E9BBB4663 /* Pods-Quantum Analyzer.ad hoc.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A00AE7121E8D54150009D5DF /* 器官图片 */ = {
+			isa = PBXGroup;
+			children = (
+				A00AE7131E8D54150009D5DF /* end.gif */,
+				A00AE7141E8D54150009D5DF /* QQ20170328-230311.png */,
+			);
+			path = "器官图片";
 			sourceTree = "<group>";
 		};
 		A06FA2951E163EA800C661E7 /* QMAnalyzer_20160614-男 */ = {
@@ -363,6 +405,7 @@
 				A06FA2A71E163EA800C661E7 /* YCMark2.jpg */,
 				A06FA2A81E163EA800C661E7 /* YCMark3.jpg */,
 				A06FA2A91E163EA800C661E7 /* YCMark4.jpg */,
+				A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */,
 				A06FA2AA1E163EA800C661E7 /* 乳腺检测报告.htm */,
 				A06FA2AB1E163EA800C661E7 /* 人体成分检测报告.htm */,
 				A06FA2AC1E163EA800C661E7 /* 人体毒素检测报告.htm */,
@@ -411,11 +454,18 @@
 		A0B6A4561DF7C03E008205DC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A00AE7121E8D54150009D5DF /* 器官图片 */,
 				A06FA2951E163EA800C661E7 /* QMAnalyzer_20160614-男 */,
 				A0E198871E14F9D60059E966 /* ReportList.sqlite */,
 				A0E198881E14F9D60059E966 /* TblMeasData.sqlite */,
 				A0E198891E14F9D60059E966 /* TblSubItemCase.sqlite */,
 				A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */,
+				A09102A91E90B07E00482C03 /* man_1.mp4 */,
+				A09102AA1E90B07E00482C03 /* man_2.mp4 */,
+				A09102AB1E90B07E00482C03 /* man_3.mp4 */,
+				A09102AC1E90B07E00482C03 /* nv_1.mp4 */,
+				A09102AD1E90B07E00482C03 /* nv_2.mp4 */,
+				A09102AE1E90B07E00482C03 /* nv_3.mp4 */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -564,6 +614,8 @@
 				A0A41D461DFAA6A1008F0682 /* QAConfigViewController.h */,
 				A0A41D471DFAA6A1008F0682 /* QAConfigViewController.m */,
 				A0A41D481DFAA6A1008F0682 /* QAConfigViewController.xib */,
+				A098B5221E28C46100C0B761 /* QAPasswordViewController.h */,
+				A098B5231E28C46100C0B761 /* QAPasswordViewController.m */,
 			);
 			path = AddDevice;
 			sourceTree = "<group>";
@@ -586,6 +638,9 @@
 				A0C769071DF408BB009380D6 /* QAHealthViewController.xib */,
 				A0B6A5301DF7C6B1008205DC /* QAWebViewController.h */,
 				A0B6A5311DF7C6B1008205DC /* QAWebViewController.m */,
+				A09102B51E90B99600482C03 /* QANewHealthViewController.h */,
+				A09102B61E90B99600482C03 /* QANewHealthViewController.m */,
+				A09102B71E90B99600482C03 /* QANewHealthViewController.xib */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -645,6 +700,9 @@
 				A0B6A4511DF7B6AC008205DC /* QAHealthTableViewCell.h */,
 				A0B6A4521DF7B6AC008205DC /* QAHealthTableViewCell.m */,
 				A0B6A4531DF7B6AC008205DC /* QAHealthTableViewCell.xib */,
+				A09102BA1E90CF9900482C03 /* QANewHealthCollectionViewCell.h */,
+				A09102BB1E90CF9900482C03 /* QANewHealthCollectionViewCell.m */,
+				A09102BC1E90CF9900482C03 /* QANewHealthCollectionViewCell.xib */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -826,6 +884,7 @@
 				A06FA2E91E163EA800C661E7 /* 免疫系统检测报告.htm in Resources */,
 				A06FA2FC1E163EA800C661E7 /* 肥胖症检测报告.htm in Resources */,
 				A0E198961E14FCD60059E966 /* TblSubItemCase.sqlite in Resources */,
+				A09102B21E90B07E00482C03 /* nv_1.mp4 in Resources */,
 				A06FA2FA1E163EA800C661E7 /* 维生素检测报告.htm in Resources */,
 				A06FA2EF1E163EA800C661E7 /* 小儿多动症检测报告.htm in Resources */,
 				A06FA2F51E163EA800C661E7 /* 男性性功能检测报告.htm in Resources */,
@@ -839,30 +898,38 @@
 				A0B6A5411DF82B36008205DC /* QAManageTableViewCell.xib in Resources */,
 				A06FA2F61E163EA800C661E7 /* 皮肤检测报告.htm in Resources */,
 				A06FA2DE1E163EA800C661E7 /* YC06.gif in Resources */,
+				A09102BE1E90CF9900482C03 /* QANewHealthCollectionViewCell.xib in Resources */,
 				A0DDEB271DF96AB400C0DB8B /* QADeleteViewController.xib in Resources */,
 				A06FA3081E163EA800C661E7 /* 过敏检测报告.htm in Resources */,
 				A06FA2DD1E163EA800C661E7 /* YC05.gif in Resources */,
 				A06FA2F81E163EA800C661E7 /* 精子和精液检测报告.htm in Resources */,
+				A09102B91E90B99600482C03 /* QANewHealthViewController.xib in Resources */,
 				A06FA2F71E163EA800C661E7 /* 眼部检测报告.htm in Resources */,
 				A0C768C51DF3F2CB009380D6 /* Assets.xcassets in Resources */,
 				A06FA2E61E163EA800C661E7 /* 乳腺检测报告.htm in Resources */,
 				A0C769131DF408DC009380D6 /* QASettingViewController.xib in Resources */,
 				A06FA2DB1E163EA800C661E7 /* YC03.gif in Resources */,
 				A06FA3031E163EA800C661E7 /* 脉搏与脑血管检测报告.htm in Resources */,
+				A09102AF1E90B07E00482C03 /* man_1.mp4 in Resources */,
 				A06FA2F31E163EA800C661E7 /* 氨基酸检测报告.htm in Resources */,
 				A06FA2EA1E163EA800C661E7 /* 内分泌系统检测报告.htm in Resources */,
 				A06FA2D81E163EA800C661E7 /* YC00.gif in Resources */,
+				A00AE7161E8D54150009D5DF /* QQ20170328-230311.png in Resources */,
 				A06FA2DC1E163EA800C661E7 /* YC04.gif in Resources */,
 				A06FA30B1E163EA800C661E7 /* 风湿骨病检测报告.htm in Resources */,
 				A0C768F51DF4085A009380D6 /* QAAddViewController.xib in Resources */,
+				A09102B41E90B07E00482C03 /* nv_3.mp4 in Resources */,
 				A06FA2E11E163EA800C661E7 /* YC09.gif in Resources */,
 				A04353301E1C0A1800A9BDF8 /* 量子检测综合报告单.htm in Resources */,
 				A06FA3091E163EA800C661E7 /* 重金属检测报告.htm in Resources */,
+				A00AE7151E8D54150009D5DF /* end.gif in Resources */,
 				A059F8751DFEA3930065BADE /* QABeginCheckViewController.xib in Resources */,
+				A09102B01E90B07E00482C03 /* man_2.mp4 in Resources */,
 				A06FA30E1E163EA800C661E7 /* 骨病检测报告.htm in Resources */,
 				A0B6A5371DF80520008205DC /* QACreatUserViewController.xib in Resources */,
 				A06FA2E01E163EA800C661E7 /* YC08.gif in Resources */,
 				A09F8C721DF513DF00B3C120 /* Podfile in Resources */,
+				A09102B31E90B07E00482C03 /* nv_2.mp4 in Resources */,
 				A06FA30D1E163EA800C661E7 /* 骨生长指数检测报告.htm in Resources */,
 				A0DDEB221DF95B9D00C0DB8B /* QAHistoryTableViewCell.xib in Resources */,
 				A06FA2DF1E163EA800C661E7 /* YC07.gif in Resources */,
@@ -874,6 +941,7 @@
 				A06FA2F41E163EA800C661E7 /* 甲状腺检测报告.htm in Resources */,
 				A06FA2EC1E163EA800C661E7 /* 基本体质检测报告.htm in Resources */,
 				A06FA2EE1E163EA800C661E7 /* 妇科检测报告.htm in Resources */,
+				A09102B11E90B07E00482C03 /* man_3.mp4 in Resources */,
 				A06FA3071E163EA800C661E7 /* 辅酶检测报告.htm in Resources */,
 				A0B6A4551DF7B6AC008205DC /* QAHealthTableViewCell.xib in Resources */,
 				A06FA2D91E163EA800C661E7 /* YC01.gif in Resources */,
@@ -886,6 +954,7 @@
 				A0A41D451DFA9FD9008F0682 /* QAAlertView.xib in Resources */,
 				A06FA3011E163EA800C661E7 /* 胰腺功能检测报告.htm in Resources */,
 				A0DDEB181DF944E200C0DB8B /* DateAndTimePickerView.xib in Resources */,
+				A013B49B1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm in Resources */,
 				A06FA2EB1E163EA800C661E7 /* 前列腺检测报告.htm in Resources */,
 				A0C768C31DF3F2CB009380D6 /* Main.storyboard in Resources */,
 				A06FA2ED1E163EA800C661E7 /* 大肠检测检测报告.htm in Resources */,
@@ -971,7 +1040,9 @@
 				A0C768BD1DF3F2CB009380D6 /* AppDelegate.m in Sources */,
 				A0BC903D1DF6A10700C6D5B3 /* UIView+SDExtension.m in Sources */,
 				A0E198931E14FA710059E966 /* Record.m in Sources */,
+				A09102B81E90B99600482C03 /* QANewHealthViewController.m in Sources */,
 				A0E198821E14F9BC0059E966 /* ReportListManager.m in Sources */,
+				A09102BD1E90CF9900482C03 /* QANewHealthCollectionViewCell.m in Sources */,
 				A0E198731E14F9A50059E966 /* ReportContentData.m in Sources */,
 				A0C768BA1DF3F2CB009380D6 /* main.m in Sources */,
 				A0B6A5321DF7C6B1008205DC /* QAWebViewController.m in Sources */,
@@ -981,6 +1052,7 @@
 				A09F8C781DF576FE00B3C120 /* GifView.m in Sources */,
 				A0DDEB211DF95B9D00C0DB8B /* QAHistoryTableViewCell.m in Sources */,
 				A0C768E61DF4070B009380D6 /* QABaseViewController.m in Sources */,
+				A098B5251E28C46100C0B761 /* QAPasswordViewController.m in Sources */,
 				A06FFB101E1B7D12006821E9 /* CollectModel.m in Sources */,
 				A0B6A5361DF80520008205DC /* QACreatUserViewController.m in Sources */,
 				A0B6A4541DF7B6AC008205DC /* QAHealthTableViewCell.m in Sources */,
@@ -1191,7 +1263,7 @@
 		};
 		A0E411A91E0CC5C100EBCB33 /* ad Hoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F213BB477048F801B8105595 /* Pods-Quantum Analyzer.release.xcconfig */;
+			baseConfigurationReference = D58EA15D6845FC5E9BBB4663 /* Pods-Quantum Analyzer.ad hoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

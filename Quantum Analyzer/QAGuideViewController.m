@@ -8,15 +8,14 @@
 
 #import "QAGuideViewController.h"
 
-@interface QAGuideViewController ()<UIScrollViewDelegate>
+@interface QAGuideViewController ()<UIScrollViewDelegate,UITextFieldDelegate>
 
 @property (retain, nonatomic)UIScrollView *pageScroll; //滑动条
 @property (retain, nonatomic)UIPageControl *pageControl; //下面的小圆点
 @property (nonatomic, strong)NSArray  *arrayImages;        //存放图片的数组
 @property (nonatomic, strong)NSMutableArray *viewControllers; //存放UIViewController的可变数组
 @property (retain, nonatomic) UIButton *setGotoMainViewBtn; //按钮点击进入主页
-
-
+@property (nonatomic, strong) UITextField *passwordTextField;
 @end
 
 @implementation QAGuideViewController
@@ -55,6 +54,14 @@
     _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     _pageControl.pageIndicatorTintColor = [UIColor grayColor];
     [self loadImage];//加载滑动的动画
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endKeyBoard)];
+    [self.view addGestureRecognizer:tap];
+    
+}
+
+- (void)endKeyBoard {
+    [_passwordTextField resignFirstResponder];
 }
 
 - (void)loadImage
@@ -67,12 +74,23 @@
                 imageViews.contentMode = UIViewContentModeScaleToFill;
                 imageViews.image = [self.arrayImages objectAtIndex:i];
                 imageViews.userInteractionEnabled = YES;
+                imageViews.userInteractionEnabled = YES;
                 
+                _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(DScreenWidth/2-75, DScreenHeight-350*myy, 150, 36)];
+                _passwordTextField.placeholder  = @"登录密码";
+                _passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
+                _passwordTextField.keyboardType = UIKeyboardTypeNumberPad;
+                _passwordTextField.returnKeyType = UIReturnKeyDone;
+                _passwordTextField.backgroundColor = [UIColor whiteColor];
+                _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                _passwordTextField.secureTextEntry = YES;
+                _passwordTextField.delegate = self;
+                [imageViews addSubview:_passwordTextField];
                 _setGotoMainViewBtn =[UIButton buttonWithType:UIButtonTypeCustom];
                 _setGotoMainViewBtn.backgroundColor = [UIColor whiteColor];
                 [_setGotoMainViewBtn setTitle:@"马上体验" forState:UIControlStateNormal];
                 [_setGotoMainViewBtn setTitleColor:navbackgroundColor forState:UIControlStateNormal];
-                _setGotoMainViewBtn.frame = CGRectMake(DScreenWidth/2-100, DScreenHeight-150, 200, 36);
+                _setGotoMainViewBtn.frame = CGRectMake(DScreenWidth/2-100, DScreenHeight-200*myy, 200, 36);
                 _setGotoMainViewBtn.layer.cornerRadius = 18;
                 _setGotoMainViewBtn.titleLabel.font = [UIFont systemFontOfSize:20];
 
@@ -93,6 +111,12 @@
     //    [self.viewController1.view addSubview:_pageControl];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [_passwordTextField resignFirstResponder];
+    return YES;
+}
+
 #pragma -mark UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -102,7 +126,23 @@
 }
 
 - (void)postRootViewController{
-    [[NSNotificationCenter defaultCenter] postNotificationName:BeginGuidePage object:nil];
+    if ([CommonCore queryMessageKey:PassWord]) {
+        if ([_passwordTextField.text isEqualToString:[CommonCore queryMessageKey:PassWord]]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:BeginGuidePage object:nil];
+            return;
+        }
+    }else {
+    
+        if ([_passwordTextField.text isEqualToString:@"000000"]) {
+            [CommonCore SaveMessageObject:@"60" key:CheckTime];
+            [[NSNotificationCenter defaultCenter] postNotificationName:BeginGuidePage object:nil];
+            return;
+        }
+    
+    }
+
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"密码错误，请重新输入" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
 }
 
 - (void)didReceiveMemoryWarning {

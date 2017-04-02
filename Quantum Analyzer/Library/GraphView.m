@@ -45,7 +45,7 @@
         [max setText:@"10"];
         [self addSubview:max];
         
-        zero = [[UILabel alloc] initWithFrame:CGRectMake(2, CGRectGetMidY(self.frame) - 7.5, 25, 16)];
+        zero = [[UILabel alloc] initWithFrame:CGRectMake(2, CGRectGetMidY(self.frame) , 25, 16)];
         [zero setAdjustsFontSizeToFitWidth:YES];
         [zero setBackgroundColor:[UIColor clearColor]];
         [zero setTextColor:[UIColor greenColor]];
@@ -57,7 +57,7 @@
         [min setText:@"0"];
         [self addSubview:min];
         
-        dx = 50; // number of points shown in graph
+        dx = 20; // number of points shown in graph
         dy = 100; // default value for dy
         
         pointArray = [[NSMutableArray alloc]init]; //stores the energy values

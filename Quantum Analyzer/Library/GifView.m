@@ -21,7 +21,7 @@
 													 forKey:(NSString *)kCGImagePropertyGIFDictionary] ;
 		gif = CGImageSourceCreateWithURL((CFURLRef)[NSURL fileURLWithPath:_filePath], (CFDictionaryRef)gifProperties);
 		count =CGImageSourceGetCount(gif);
-		timer = [NSTimer scheduledTimerWithTimeInterval:0.06 target:self selector:@selector(play) userInfo:nil repeats:YES];
+		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(plays) userInfo:nil repeats:YES];
 	//	[timer fire];
     }
     return self;
@@ -37,13 +37,13 @@
         //		gif = CGImageSourceCreateWithURL((CFURLRef)[NSURL fileURLWithPath:_filePath], (CFDictionaryRef)gifProperties);
         gif = CGImageSourceCreateWithData((CFDataRef)_data, (CFDictionaryRef)gifProperties);
 		count =CGImageSourceGetCount(gif);
-		timer = [NSTimer scheduledTimerWithTimeInterval:0.12 target:self selector:@selector(play) userInfo:nil repeats:YES];
+		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(plays) userInfo:nil repeats:YES];
 		[timer fire];
     }
     return self;
 }
 
--(void)play
+-(void)plays
 {
 	index ++;
 	index = index%count;
@@ -52,12 +52,26 @@
     CFRelease(ref);
 }
 
+-(void)play
+{
+    [timer setFireDate:[NSDate distantPast]];
+
+}
+
 - (void)stop
 {
     CGImageRef ref = CGImageSourceCreateImageAtIndex(gif, 0, (CFDictionaryRef)gifProperties);
     self.layer.contents = (__bridge id)(ref);
     CFRelease(ref);
 [timer setFireDate:[NSDate distantFuture]];
+}
+
+- (void)pause
+{
+    CGImageRef ref = CGImageSourceCreateImageAtIndex(gif, index, (CFDictionaryRef)gifProperties);
+    self.layer.contents = (__bridge id)(ref);
+    CFRelease(ref);
+    [timer setFireDate:[NSDate distantFuture]];
 }
 
 - (void)start

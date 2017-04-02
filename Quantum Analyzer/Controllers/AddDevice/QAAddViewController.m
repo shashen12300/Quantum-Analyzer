@@ -9,6 +9,7 @@
 #import "QAAddViewController.h"
 #import "QABLEAdapter.h"
 #import "QAConfigViewController.h"
+#import "QAPasswordViewController.h"
 
 @interface QAAddViewController ()
 
@@ -28,11 +29,13 @@
     self.addBtn.layer.cornerRadius = 18;
     self.autoHeight.constant = DScreenWidth/381*253;
     [QABLEAdapter sharedBLEAdapter].addViewController = self;
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
     
 }
 - (IBAction)addDeviveBtnClick:(id)sender {

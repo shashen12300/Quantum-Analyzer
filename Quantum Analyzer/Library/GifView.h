@@ -21,4 +21,7 @@
 - (id)initWithFrame:(CGRect)frame data:(NSData *)_data;
 - (void)start;
 - (void)stop;
+- (void)pause;
+-(void)play;
+
 @end

@@ -52,5 +52,6 @@
 + (NSString *)convertDataToHexStr:(NSData *)data;
 /** 获取年龄*/
 + (NSString *)getAgeDate:(NSString *)date;
++ (UIImage *)getScreenShotImageFromVideoPath:(NSString *)filePath;
 
 @end

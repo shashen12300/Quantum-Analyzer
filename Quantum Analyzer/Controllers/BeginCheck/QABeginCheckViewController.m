@@ -13,6 +13,12 @@
 #import "DataBase.h"
 #import "QABLEAdapter.h"
 #import "HealthReportManager.h"
+#import "QAHealthViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <Masonry.h>
+#import "ReportListManager.h"
+#import "ReportList.h"
+
 typedef NS_ENUM(NSInteger,Buttonype) {
     WaitCheck  = 0,
     BeginCheck = 1,
@@ -25,21 +31,50 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 @interface QABeginCheckViewController ()<UIAlertViewDelegate>
 
 @property (nonatomic, strong) GifView *gifView;
-@property (nonatomic, strong) UIImageView *scanNetImageView;
+/* 曲线根视图*/
 @property (weak, nonatomic) IBOutlet UIView *graphViewBg;
-@property (weak, nonatomic) IBOutlet UIView *scanWindow;
-@property (nonatomic, weak)   UIView *maskView;
+/* 曲线视图*/
 @property (nonatomic, strong) GraphView *graphView;
-
+/* 视频窗口*/
+@property (weak, nonatomic) IBOutlet UIView *videoView;
+/* 器官根视图*/
+@property (weak, nonatomic) IBOutlet UIView *organView;
+/* 时间视图*/
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+/* 开始检测*/
 @property (weak, nonatomic) IBOutlet UIButton *beginBtn;
+/* 停止检测*/
 @property (weak, nonatomic) IBOutlet UIButton *stopBtn;
+/* 查看报告*/
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
+/* 距离底部高度*/
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnBottom;
+/* 视频宽度*/
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoWidth;
+/* 报告检测状态*/
+@property (weak, nonatomic) IBOutlet UILabel *reportResultLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *shiImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *geImageView;
+
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSTimer *checkTimer;
 @property (nonatomic, strong) UIButton *lastBtn;
 @property (nonatomic, assign) Buttonype buttonType;
 @property (nonatomic, strong) QABLEAdapter *t;
+@property (nonatomic,assign) NSInteger checkTime;
+@property (nonatomic, strong) Person *person;
+@property (nonatomic,strong) Record *record;
+@property (nonatomic, strong) NSArray *sourceArray;
+
+@property (nonatomic,strong) MPMoviePlayerController *moviePlayer;
+
+@property (weak, nonatomic) IBOutlet UIImageView *checkPeopleImageView;
+
+
+/* 曲线背景图*/
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+
 @end
 
 @implementation QABeginCheckViewController
@@ -47,21 +82,27 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTitleLabel:@"开始检测"];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = UIColorFromRGB(0xD49203);
+    
     [QABLEAdapter sharedBLEAdapter].beginViewController = self;
     _t = [QABLEAdapter sharedBLEAdapter];
     _t.beginViewController = self;
-    self.view.clipsToBounds=YES;
-    self.scanNetImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scan_net"]];
-    [_scanWindow addSubview:_scanNetImageView];
-    _scanNetImageView.hidden = YES;
-
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scan_net"]];
-    bgImageView.frame = _graphViewBg.bounds;
-    bgImageView.clipsToBounds = YES;
-    bgImageView.contentMode = UIViewContentModeScaleToFill;
-    [_graphViewBg addSubview:bgImageView];
-    _graphView = [[GraphView alloc]initWithFrame:CGRectMake(0, 0, DScreenWidth+5, HEIGHT(_graphViewBg))];
+    _videoWidth.constant = (myx*250);
+//    self.view.clipsToBounds=YES;
+    _sourceArray = [[NSArray alloc] init];
+    //视频
+    NSURL *urlString = [[NSBundle mainBundle] URLForResource:@"man_1" withExtension:@"mov"];
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:urlString];
+    _moviePlayer.repeatMode = MPMovieRepeatModeOne;
+    // 设置播放视图的frame
+    self.moviePlayer.view.frame = CGRectMake(0, 0, 250*myx, 360*myx);
+    // 设置播放视图控制样式
+    self.moviePlayer.controlStyle = MPMovieControlStyleNone;
+    // 添加播放视图到要显示的视图
+    [_videoView addSubview:self.moviePlayer.view];
+    _moviePlayer.view.hidden = YES;
+    //曲线图
+    _graphView = [[GraphView alloc]initWithFrame:CGRectMake(0, 0, 125*myx, 150*myx)];
     [_graphView setBackgroundColor:[UIColor clearColor]];
     [_graphView setSpacing:10];
     [_graphView setFill:NO];
@@ -71,7 +112,12 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     [_graphView setLineWidth:1];
     [_graphView setCurvedLines:YES];
     [_graphViewBg addSubview:_graphView];
-    
+    //器官图
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"end.gif" ofType:nil];
+    _gifView = [[GifView alloc] initWithFrame:CGRectMake(0, 0, 120*myx, 100*myx) filePath:filePath];
+    [_organView addSubview:_gifView];
+    [_gifView stop];
+
    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setPointButtonAction) userInfo:nil repeats:YES];
     //关闭定时器
     [_timer setFireDate:[NSDate distantFuture]];
@@ -81,11 +127,36 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 
 }
 
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    _videoWidth.constant = 250*myx;
+    _btnBottom.constant = 50*myx;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (_lastBtn.tag == 0&&_lastBtn.selected == YES) {
-        //继续动画
-        [self resumeAnimation];
+    if ([CommonCore queryMessageKey:CurrentUserID]) {
+        NSString *fileName;
+        _person = [[DataBase sharedDataBase] getCurrentLoginUser];
+        [self initTitleLabel:_person.name];
+        int rand = arc4random() % 3 + 1;
+        if ([_person.sex isEqualToString:@"女"]) {
+            fileName = [NSString stringWithFormat:@"nv_%d.mp4",rand];
+        }else {
+            fileName = [NSString stringWithFormat:@"man_%d.mp4",rand];
+        }
+        _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
+        NSString *fileString = [DocumentFile ProductPath:fileName];
+        _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
+    }
+    
+    Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
+    if ([person.age intValue] <= 14) {
+        _sourceArray = [[ReportListManager sharedManager] getAllChildrenReport];
+    }else if ([person.sex isEqualToString:@"男"]) {
+        _sourceArray = [[ReportListManager sharedManager] getAllManReport];
+    }else {
+        _sourceArray = [[ReportListManager sharedManager] getAllWomanReport];
     }
 
 }
@@ -106,42 +177,52 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     if (sender.tag == 0) {
         [self resetAllState];
         _saveBtn.enabled = NO;
+        _stopBtn.selected = NO;
         _saveBtn.backgroundColor = grayFontColor;
         //开启定时器
         _buttonType = WaitCheck;
         [_checkTimer setFireDate:[NSDate distantPast]];
+        
+        NSString *fileName;
+        _person = [[DataBase sharedDataBase] getCurrentLoginUser];
+        [self initTitleLabel:_person.name];
+        int rand = arc4random() % 3 + 1;
+        if ([_person.sex isEqualToString:@"女"]) {
+            fileName = [NSString stringWithFormat:@"nv_%d.mp4",rand];
+        }else {
+            fileName = [NSString stringWithFormat:@"man_%d.mp4",rand];
+        }
+        _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
+        NSString *fileString = [DocumentFile ProductPath:fileName];
+        _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
+        
 
     }else if (sender.tag == 1) {
-        _saveBtn.enabled = YES;
-        _saveBtn.backgroundColor = navbackgroundColor;
+        _beginBtn.selected = NO;
         //关闭定时器
         _buttonType = StopCheck;
         [_timer setFireDate:[NSDate distantFuture]];
-        _scanNetImageView.hidden = YES;
-        [_scanNetImageView.layer removeAllAnimations];
         [[QABLEAdapter sharedBLEAdapter] stopCheck];
+        [self.moviePlayer stop];
+        _moviePlayer.view.hidden = YES;
+        [_gifView stop];
+
         
     }else {
-        _saveBtn.enabled = NO;
-        _saveBtn.backgroundColor = grayFontColor;
+        _beginBtn.selected = NO;
+        _stopBtn.selected = NO;
+        _saveBtn.selected = NO;
+        //查看检测报告
+        QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
+        healthVC.report = _record.report;
+        healthVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:healthVC animated:YES]; 
+        return;
 
-        //保存结果
-        _buttonType = SaveCheck;
-        NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];
-        Record *record = [[Record alloc] init];
-        record.time = [CommonCore currentTime];
-        record.own_id = userID;
-        Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
-        record.report = [[HealthReportManager sharedManager]saveUserDataToSqlite:record.time];
-        [[DataBase sharedDataBase] addRecord:record toPerson:person];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-        
-        [self resetAllState];
     }
-    _lastBtn.selected = NO;
+//    _lastBtn.selected = NO;
     sender.selected = YES;
-    _lastBtn = sender;
+//    _lastBtn = sender;
 }
 
 
@@ -150,8 +231,6 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 - (void)resetAllState {
     //关闭定时器
     [_timer setFireDate:[NSDate distantFuture]];
-    _scanNetImageView.hidden = YES;
-    [_scanNetImageView.layer removeAllAnimations];
     [_graphView resetGraph];
     [[QABLEAdapter sharedBLEAdapter] saveCheckResult];
 
@@ -167,6 +246,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     NSString *valueStr = [self convertDataToHexStr:[characteristic value]];
     valueStr = [valueStr substringToIndex:10];
     NSInteger value = [[CommonCore convertHexStrToString:valueStr] integerValue];
+//   NSInteger value = 15000;
     NSLog(@"valueStr: %@   value: %ld",valueStr,value);
 
     if (_buttonType == WaitCheck) {
@@ -175,9 +255,12 @@ typedef NS_ENUM(NSInteger,Buttonype) {
             _buttonType = BeginCheck;
             [[QABLEAdapter sharedBLEAdapter] startCheck];
             [_timer setFireDate:[NSDate distantPast]];
-            [self resumeAnimation];
-            _scanNetImageView.hidden = NO;
             [[QABLEAdapter sharedBLEAdapter] voltageCheck];
+            _moviePlayer.view.hidden = NO;
+            [self.moviePlayer play];
+            [_gifView start];
+
+
         }
         
     }else if (_buttonType == BeginCheck) {
@@ -185,9 +268,8 @@ typedef NS_ENUM(NSInteger,Buttonype) {
             _buttonType = ContinueCheck;
             [[QABLEAdapter sharedBLEAdapter] pauseCheck];
             [_timer setFireDate:[NSDate distantFuture]];
-            _scanNetImageView.hidden = YES;
-            [_scanNetImageView.layer removeAllAnimations];
-
+            [_gifView pause];
+            [self.moviePlayer pause];
         }
     } else if (_buttonType == PauseCheck) {
         
@@ -195,8 +277,9 @@ typedef NS_ENUM(NSInteger,Buttonype) {
             _buttonType = ContinueCheck;
             [[QABLEAdapter sharedBLEAdapter] continueCheck];
             [_timer setFireDate:[NSDate distantPast]];
-            [self resumeAnimation];
-            _scanNetImageView.hidden = NO;
+            [self.moviePlayer play];
+            [_gifView play];
+
 
 
 
@@ -206,8 +289,9 @@ typedef NS_ENUM(NSInteger,Buttonype) {
             _buttonType = PauseCheck;
             [[QABLEAdapter sharedBLEAdapter] pauseCheck];
             [_timer setFireDate:[NSDate distantFuture]];
-            _scanNetImageView.hidden = YES;
-            [_scanNetImageView.layer removeAllAnimations];
+            [self.moviePlayer pause];
+            [_gifView pause];
+
         }
     }
     
@@ -260,54 +344,66 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
+    _saveBtn.enabled = YES;
+    _saveBtn.backgroundColor = navbackgroundColor;
+    _stopBtn.selected = YES;
+    [self resetAllState];
+
 }
 
 -(void)setPointButtonAction {
-    
+    _checkTime++;
+    NSInteger count = 60 - _checkTime;
+    NSString *shi,*ge;
+    shi = [NSString stringWithFormat:@"%ld",count/10];
+    ge = [NSString stringWithFormat:@"%ld",count%10];
+    _shiImageView.image = [UIImage imageNamed:shi];
+    _geImageView.image = [UIImage imageNamed:ge];
+    if (_checkTime >=[[CommonCore queryMessageKey:CheckTime] integerValue]) {
+        _checkTime = 0;
+        _shiImageView.image = [UIImage imageNamed:@"6"];
+        _geImageView.image = [UIImage imageNamed:@"0"];
+        
+        _buttonType = StopCheck;
+        [_timer setFireDate:[NSDate distantFuture]];
+        [[QABLEAdapter sharedBLEAdapter] stopCheck];
+        [self.moviePlayer stop];
+        [_gifView stop];
+        _moviePlayer.view.hidden = YES;
+        _beginBtn.selected =NO;
+        _stopBtn.selected = NO;
+        //保存结果
+        _buttonType = SaveCheck;
+        NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];
+        _record = [[Record alloc] init];
+        _record.time = [CommonCore currentTime];
+        _record.own_id = userID;
+        _record.report = [[HealthReportManager sharedManager]saveUserDataToSqlite:_record.time];
+        [[DataBase sharedDataBase] addRecord:_record toPerson:_person];
+        _reportResultLabel.text = @"全部检测完成";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"报告生成成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+        
+        return;
+    }
     // generate random numbers between +100 and -100
     float low_bound = -100.00;
     float high_bound = 100.00;
     float rndValue = (((float)arc4random()/0x100000000)*(high_bound-low_bound)+low_bound);
     int intRndValue = (int)(rndValue + 0.5);
     [_graphView setPoint:intRndValue];
-    
-}
-
-
-
-#pragma mark 恢复动画
-- (void)resumeAnimation
-{
-    CAAnimation *anim = [_scanNetImageView.layer animationForKey:@"translationAnimation"];
-    if(anim){
-        // 1. 将动画的时间偏移量作为暂停时的时间点
-        CFTimeInterval pauseTime = _scanNetImageView.layer.timeOffset;
-        // 2. 根据媒体时间计算出准确的启动动画时间，对之前暂停动画的时间进行修正
-        CFTimeInterval beginTime = CACurrentMediaTime() - pauseTime;
-        
-        // 3. 要把偏移时间清零
-        [_scanNetImageView.layer setTimeOffset:0.0];
-        // 4. 设置图层的开始动画时间
-        [_scanNetImageView.layer setBeginTime:beginTime];
-        
-        [_scanNetImageView.layer setSpeed:1.0];
-    }else{
-    
-        CGFloat scanNetImageViewH = _scanWindow.sd_height;
-//        CGFloat scanWindowH = self.view.sd_width - kMargin * 2;
-        CGFloat scanNetImageViewW = _scanWindow.sd_width;
-        _scanNetImageView.frame = CGRectMake(0, -scanNetImageViewH, scanNetImageViewW, scanNetImageViewH);
-        CABasicAnimation *scanNetAnimation = [CABasicAnimation animation];
-        scanNetAnimation.keyPath = @"transform.translation.y";
-        scanNetAnimation.byValue = @(scanNetImageViewH);
-        scanNetAnimation.duration = 1.0;
-        scanNetAnimation.repeatCount = MAXFLOAT;
-        [_scanNetImageView.layer addAnimation:scanNetAnimation forKey:@"translationAnimation"];
+    ReportList *repolist = _sourceArray[count/2%30];
+    if (count%2==1) {
+        NSString *nameStr = [repolist.reportName substringToIndex:repolist.reportName.length-2];
+        _reportResultLabel.text = [NSString stringWithFormat:@"正在进行%@检测......",nameStr];
+    }else {
+        NSString *nameStr = [repolist.reportName substringToIndex:repolist.reportName.length-2];
+        _reportResultLabel.text = [NSString stringWithFormat:@"%@已检测完成",nameStr];
     }
 
     
-    
 }
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -12,8 +12,6 @@
 
 + (HealthReportManager *) sharedManager;
 
-- (NSString *)getCheckReportHtml:(NSString *)mainItemID;
-
 - (NSString *)saveUserDataToSqlite:(NSString *)time;
 
 @end

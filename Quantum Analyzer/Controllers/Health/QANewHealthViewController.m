@@ -57,7 +57,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _sourceArray.count;
+    return _sourceArray.count+1;
 }
 
 
@@ -67,6 +67,14 @@
 {
     QANewHealthCollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
+
+    if (indexPath.row == _sourceArray.count) {
+        cell.titleLabel.text = @"量子检测综合报告单";
+    }else {
+        ReportList *reportList = _sourceArray[indexPath.row];
+        cell.titleLabel.text = reportList.reportName;
+    }
+    
     ReportList *reportList = _sourceArray[indexPath.row];
     cell.titleLabel.text = reportList.reportName;
     return cell;

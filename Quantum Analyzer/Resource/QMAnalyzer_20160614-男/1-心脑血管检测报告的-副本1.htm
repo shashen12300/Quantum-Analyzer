@@ -1,19 +1,44 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" ; content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>心脑血管检测报告</title>
-    <STYLE>.title {
-        FONT-SIZE: 18px;
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = (clientWidth >= 640 ? 100 : clientWidth / 6.4) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <STYLE>
+    body{
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    .title {
+        FONT-SIZE: 0.18rem;
         FONT-FAMILY: "黑体"
     }
-
-
+    .xtable{
+        width: 100%;
+    }
     TD {
-        FONT-SIZE: 11pt
+        FONT-SIZE: 0.11rem;
     }
 
     .small {
-        FONT-SIZE: 9pt
+        FONT-SIZE: 0.09rem;
     }
 
     a:link {
@@ -35,13 +60,20 @@
         BORDER-RIGHT: #000000 0px;
         BORDER-TOP: #000000 1px solid;
         BORDER-LEFT: #000000 1px solid;
-        BORDER-BOTTOM: #000000 0px
+        BORDER-BOTTOM: #000000 0px;
+        width: 100%;
+        margin: 0 auto;
     }
-
+    .table.explain{
+        width: 5.9rem;
+    }
+    .table.six{
+        width: 6rem;
+    }
     .td {
         BORDER-RIGHT: #000000 1px solid;
         BORDER-TOP: #ffffff 0px;
-        FONT-SIZE: 14px;
+        FONT-SIZE: 0.14rem;
         BORDER-LEFT: #ffffff 0px;
         BORDER-BOTTOM: #000000 1px solid
     }
@@ -49,13 +81,13 @@
     .td2 {
         BORDER-RIGHT: #ffffff 0px;
         BORDER-TOP: #ffffff 0px;
-        FONT-SIZE: 14px;
+        FONT-SIZE: 0.14rem;
         BORDER-LEFT: #ffffff 0px;
         BORDER-BOTTOM: #000000 1px solid
     }
 
     .NOPRINT {
-        FONT-SIZE: 9pt;
+        FONT-SIZE: 0.09rem;
         FONT-FAMILY: "宋体"
     }
 
@@ -108,69 +140,103 @@
         BORDER-BOTTOM: #000000 1px solid
     }
     .dataLine{
-        width: 640px;
-        margin: 0 auto;
+        width: 6.16rem;
+        margin: 0.2rem auto;
 
     }
     .dataLine ul{
-        overflow: hidden;
+        float: left;
         margin: 0;
         padding: 0;
     }
     .dataLine li{
-        width: 250px;
+        width: 2.3rem;
         float: left;
         margin: 0;
         list-style: none;
         background-image: url("background.png");
         background-size: cover;
-        margin: 15px 65px 15px 5px;
+        margin: 0.3rem 0.6rem 0.15rem 0.1rem;
         position: relative;
-        height: 120px;
-        font-size: 8px;
+        height: 1.2rem;
+        font-size: 0.08rem;
+        position: relative;
+        box-sizing: border-box;
     }
     .dataLine li .abnormal_min{
         position: absolute;
-        top: 105px;
-        right: -45px;
+        top: 1.05rem;
+        right: -0.71rem;
         color: red;
     }
     .dataLine li .normal_min{
         position: absolute;
-        right: -45px;
-        top: 70px;
+        right: -0.71rem;
+        top: 0.7rem;
         color: lawngreen;
 
     }
     .dataLine li .normal_max{
         position: absolute;
-        right: -45px;
-        top: 30px;
+        right: -0.71rem;
+        top: 0.3rem;
         color: lawngreen;
     }
     .dataLine li .abnormal_max{
         position: absolute;
-        right: -45px;
-        top: -5px;
+        right: -0.71rem;
+        top: -0.05rem;
         color: red;
 
     }
     .dataLine li .reality{
         position: absolute;
-        right: -45px;
-        top: 50px;
+        right: -0.71rem;
+        top: 0.5rem;
         color: blue;
     }
-    
-    body {
-        margin
+    .dataLine li .name{
+        position: absolute;
+        top: -0.3rem;
+        left: 0;
+        /*text-align: center;*/
+        width: 100%;
+        font-size: 0.12rem;
     }
-    
+    .dataLine li .result{
+        position: absolute;
+        top: -0.28rem;
+        left: 0;
+        text-align: right;
+        width: 100%;
+        font-size: 0.12rem;
+    }
+    .dataLine li .canvas{
+        width: 2.3rem;
+        height: 1.2rem;
+    }
+    #box{
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: black;
+        z-index: 999;
+        display: none;
+        background: #fff;
+    }
+    #box .container{
+        width: 5.8rem;
+        height: 10rem;
+        background: url("background.png") no-repeat;
+        background-size: cover;
+    }
 
     </STYLE>
 </head>
-<body style="background-image:url(Pagebg1.jpg);background-position:center top;background-repeat:no-repeat;background-attachment:fixed;">
-<table cellSpacing=4 cellPadding=0 width=620 align=Center border=0>
+<body style="background-image:url(Pagebg.jpg);background-position:center top;
+background-repeat:no-repeat;background-attachment:fixed;">
+<div id="box"></div>
+<table cellSpacing=4 cellPadding=0 align=Center border=0>
     <tr>
         <td align=middle colspan=3><font size=6 face=黑体><p>量子弱磁检测(心脑血管检测报告)</p>
             <p>分析报告单</p></font></td>
@@ -196,17 +262,17 @@
         </td>
     </tr>
     <tr>
-        <td width=100% colspan=3>
+        <td  colspan=3>
             <hr color=#FF9933 size=2>
         </td>
     </tr>
 </table>
-<TABLE width=590 align=center border=0 cellpadding=0 cellspacing=0>
+<TABLE align=center border=0 cellpadding=0 cellspacing=0 class="explain">
     <tr>
         <td height=8></td>
     </tr>
 </table>
-<TABLE width=590 align=center border=0>
+<TABLE align=center border=0 class="explain">
     <TR>
         <TD><Font size=3><STRONG>实际检测结果</STRONG></Font></TD>
     </TR>
@@ -218,14 +284,14 @@
     <ul id="content"></ul>
 </div>
 
-<TABLE width=590 align=center border=0 cellpadding=0 cellspacing=0>
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td height=20></td>
     </tr>
 </table>
 
 
-<TABLE cellSpacing=0 cellPadding=3 width=590 align=center border=0>
+<TABLE cellSpacing=0 cellPadding=3 class="explain" align=center border=0>
     <TR align=middle>
         <TD rowspan="2"><STRONG>参考标准:</STRONG></TD>
         <TD>
@@ -256,16 +322,16 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE width=590 align=center border=0 cellpadding=0 cellspacing=0>
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td height=30></td>
     </tr>
 </table>
-<TABLE class=wtable cellSpacing=4 cellPadding=3 width=590 align=center border=0 bgcolor=B3D9ED>
+<TABLE class=wtable cellSpacing=4 cellPadding=3 class="explain" align=center border=0 bgcolor=B3D9ED>
     <TR>
         <TD align=center><B>参&nbsp;&nbsp;数&nbsp;&nbsp;说&nbsp;&nbsp;明</B></TD>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>血液粘稠度（N）：</B>血液流变学的基本指标，是指血液分子间的内摩擦力。</TD>
     </TR>
@@ -276,7 +342,7 @@
         <TD>血液在血管中流动处于层流状态，也就是分层流动，越靠近血管壁，流速越慢，中间最快。所以切变率越大，斜度越大，切应力越大，流速越快，N 越低。切变率越小，斜度越小，切应力越小，流速越慢，N 越高。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>胆固醇结晶：</B></TD>
     </TR>
@@ -287,7 +353,7 @@
         <TD>（2）降低，见于免疫力下降，营养不良，心肌供血不足及气阴两虚型胸痹，阳气虚衰型胸痹等证。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>血脂：</B>血脂异常分为原发性及继发性。 <br/>1、原发性高脂蛋白血症：指原因不明的可能与某些环境因素（包括饮食、营养、药物等）有关，或由于基因变异所引起的高脂蛋白血症。 <br/>2、继发性高脂蛋白血症：指由于某些全身性疾病或药物引起的高脂血症。如糖尿病、甲状腺功能减退症、肾病综合征、慢性肾功能衰竭、急性肾功能衰竭所引起的高脂血症等。</B>
         </TD>
@@ -302,7 +368,7 @@
         <TD>（3）减低，见于脑动脉血氧含量减低，轻度缺血性脑血管疾病先兆。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>血管阻力：</B></TD>
     </TR>
@@ -313,7 +379,7 @@
         <TD>减低，收缩压和舒张压轻度降低，轻度低血压，阴虚火旺型不寐等证。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>血管弹性：</B>心脏收缩排血时动脉血管弹性扩张的程度。</TD>
     </TR>
@@ -326,17 +392,17 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>心肌血液需量：</B>经心脏冠状动脉灌流的每分钟血液需求量。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>心肌血液灌注量：</B>经心脏冠状动脉灌流的每分钟实际血液量。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>心肌耗氧量：</B>心脏每分钟耗氧的毫升数。</TD>
     </TR>
@@ -345,7 +411,7 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>每搏心搏出量：</B>心脏每搏动一次所排出的血量。</TD>
     </TR>
@@ -359,7 +425,7 @@
         <TD>心室收缩时，心肌是协调一致运动的，如果心肌收缩不协调，SV 降低。如：一些心肌梗塞的病人，有一部分梗塞了，这样心肌收缩力不一致，SV 降低。但一般情况下，室壁运动不会异常。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>左心室喷血阻抗：</B>反映左心流出通道阻力状况的指标。</TD>
     </TR>
@@ -367,7 +433,7 @@
         <TD>影响因素：<br/>（1）流出通道有无病变。如主动脉瓣狭窄等都可引起VER 增大。<br/>（2）流出通道无病变，但主动脉血液排空速度缓慢，VER 增大。<br/>（3）整个血管阻力大。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>左心室有效泵力：</B>反映左心有效搏血的收缩力量。</TD>
     </TR>
@@ -379,7 +445,7 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>冠状动脉弹性：</B></TD>
     </TR>
@@ -393,7 +459,7 @@
         <TD>引起冠状动脉弹性减弱的危险因素: 高血脂，吸烟，糖尿病，肥胖，高血压，缺乏体力活动，精神过度紧张，冠心病家族史、口服避孕药等。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>冠状动脉灌注压：</B>心脏冠状动脉供血时的压力，受舒张压和左房压影响。</TD>
     </TR>
@@ -401,7 +467,7 @@
         <TD>心肌部分缺血，心肌供血不足。心肌完全缺血，可能发生心肌梗塞。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>脑血管弹性：</B></TD>
     </TR>
@@ -411,7 +477,7 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>脑组织供血状况：</B></TD>
     </TR>
@@ -421,7 +487,7 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>心搏系数：</B></TD>
     </TR>
@@ -429,7 +495,7 @@
         <TD>心跳、脉搏跳动的情况</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>主动脉排空系数：</B></TD>
     </TR>
@@ -446,8 +512,8 @@
         <TD>髂总动脉在骶髂关节高度分为髂内,外动脉</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB></TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB></TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>心脏：</B></TD>
     </TR>
@@ -464,7 +530,7 @@
         <TD>心脏的作用是推动血液流动，向器官、组织提供充足的血流量，以供应氧和各种营养物质，并带走代谢的终产物（如二氧化碳、尿素和尿酸等），使细胞维持正常的代谢和功能。</TD>
     </TR>
 </TABLE>
-<TABLE class=xtable cellSpacing=4 cellPadding=0 width=590 align=center border=0 bgcolor=EBF5FB>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
     <TR>
         <TD><B>血管的顺应性：</B></TD>
     </TR>
@@ -474,19 +540,19 @@
         </TD>
     </TR>
 </TABLE>
-<TABLE width=590 align=center border=0 cellpadding=0 cellspacing=0>
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td height=12></td>
     </tr>
 </table>
-<table cellSpacing=0 cellPadding=0 width=600 align=Center border=0>
+<table cellSpacing=0 cellPadding=0 width=600 align=Center border=0 class="six">
     <tr>
         <td>
             <hr color=#FF9933 size=2>
         </td>
     </tr>
 </table>
-<TABLE cellSpacing=0 cellPadding=0 width=590 align=center border=0>
+<TABLE cellSpacing=0 cellPadding=0 class="explain" align=center border=0>
     <TR height=5>
         <TD></TD>
     </TR>
@@ -539,12 +605,27 @@
     ]
 
     function draw(a,color,canvas) {
+        var fontSize = document.documentElement.style.fontSize.replace("px","");
+        var s = canvas.getContext("2d");
+        //贝兹曲线
+        var start = 1.2*(fontSize)*2;
+        console.log(start);
+        console.log(document.documentElement.style.fontSize)
+        s.beginPath();
+        s.strokeStyle=color;
+        s.moveTo(0,start);
+        var end = 2.3*(fontSize)*2;
+        s.quadraticCurveTo(60,40,end,a);
+        s.stroke();
+    }
+
+    function BigDraw(a,color,canvas) {
         var s = canvas.getContext("2d");
         //贝兹曲线
         s.beginPath();
         s.strokeStyle=color;
-        s.moveTo(0,120);
-        s.quadraticCurveTo(60,40,250,a);
+        s.moveTo(0,0);
+        s.quadraticCurveTo(canvas.width/3,canvas.height/4,a,canvas.height);
         s.stroke();
     }
 
@@ -552,7 +633,9 @@
     for(var i=0;i<data.length;i++){
         var dataLine = document.createElement("li");
         content.appendChild(dataLine);
-        dataLine.innerHTML = '<canvas width="250" height="174" class="canvas"></canvas>' +
+        dataLine.innerHTML = '<canvas  class="canvas"></canvas>' +
+                '<span class="name">'+data[i].name+'</span>'+
+                '<span class="result">'+data[i].result+'</span>'+
                 '<span class="abnormal_min">'+data[i].abnormal_min+'</span>' +
                 '<span class="normal_min">'+data[i].normal_min+'</span>' +
                 '<span class="normal_max">'+data[i].normal_max+'</span>'+
@@ -561,6 +644,7 @@
 
     }
         window.onload = function(){
+            var fontSize = document.documentElement.style.fontSize.replace("px","");
             var canvases = document.getElementsByClassName("canvas");
             var lis = document.getElementsByTagName("li");
             for(var i=0;i<data.length;i++){
@@ -576,27 +660,68 @@
                 }else {
                     color = "red";
                 }
+
                 //高度
                 if (alone.reality<alone.normal_min) {
-                    length = 120-(alone.reality-alone.abnormal_min)/(alone.normal_min-alone.abnormal_min)*35;
-                    coord = 90;
+                    length = 2.4*fontSize-(alone.reality-alone.abnormal_min)/(alone.normal_min-alone.abnormal_min)*0.7*fontSize;
+                    coord = 0.9*fontSize;
+                    console.log(coord)
                 }else if (alone.reality<alone.normal_max) {
-                    length = 85-(alone.reality-alone.normal_min)/(alone.normal_max-alone.normal_min)*40;
-                    coord = 50;
+                    length = 1.7*fontSize-(alone.reality-alone.normal_min)/(alone.normal_max-alone.normal_min)*0.8*fontSize;
+                    coord = 0.5*fontSize;
+                    console.log(coord)
                 }else if (alone.reality<alone.abnormal_max) {
-                    length = 45-(alone.reality-alone.normal_max)/(alone.abnormal_max-alone.normal_max)*35;
-                    coord = 10;
+                    length = 0.9*fontSize-(alone.reality-alone.normal_max)/(alone.abnormal_max-alone.normal_max)*35;
+                    coord = 0.1*fontSize;
+                    console.log(coord)
                 }
 
                 var canvas = canvases[i];
                 draw(40,"green",canvas);
                 draw(length,color,canvas);
 
-                var result = (lis[i].childNodes)[4];
+                var reality = (lis[i].childNodes)[6];
                 console.log(result);
-                result.style.top = coord+"px";
+                console.log(coord);
+                reality.style.top = coord+"px";
+                var result = (lis[i].childNodes)[2];
+                result.style.color = color;
+                var box = document.getElementById("box");
+                lis[i].index = i;
+                lis[i].length = length;
+                lis[i].color = color;
+                lis[i].onclick = function(){
+                    box.style.display = "block";
+                    box.style.width = "100%";
+                    box.style.height = "100%";
+                    document.addEventListener('touchmove', function(event) {
+                        event.preventDefault();
+                    })
+
+                    box.innerHTML = '<div class="container">'+
+                                '<canvas class="bigCanvas"></canvas>' +
+                                '<span class="bigName">'+data[this.index].name+'</span>'+
+                                '<span class="bigResult">'+data[this.index].result+'</span>'+
+                                '<span class="bigAbnormal_min">'+data[this.index].abnormal_min+'</span>' +
+                                '<span class="bigNormal_min">'+data[this.index].normal_min+'</span>' +
+                                '<span class="bigNormal_max">'+data[this.index].normal_max+'</span>'+
+                                '<span class="bigReality">'+data[this.index].reality+'</span>'+
+                                '<span class="bigAbnormal_max">'+data[this.index].abnormal_max+'</span>'+
+                            '</div>';
+                    var bigcanvas = document.getElementsByClassName("bigCanvas");
+                    console.log(bigcanvas);
+                    var canvas1 = bigcanvas[0];
+                    canvas1.style.width = "100%";
+                    canvas1.style.height = "100%";
+                    BigDraw(canvas1.width*2/3,"green",canvas1);
+                    BigDraw(canvas1.width*this.length/120,this.color,canvas1);
+                }
             }
 
+            box.onclick = function(){
+                box.style.display = "none"
+                box.innerHTML = "";
+            }
         }
 </script>
 </body>

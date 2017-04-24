@@ -11,3 +11,9 @@
 @implementation ReportContentData
 
 @end
+
+
+@implementation ReportGraphData
+
+
+@end

@@ -10,6 +10,7 @@
 #import "QABLEAdapter.h"
 #import "QAConfigViewController.h"
 #import "QAPasswordViewController.h"
+#import "QACeShiViewController.h"
 
 @interface QAAddViewController ()
 
@@ -29,7 +30,14 @@
     self.addBtn.layer.cornerRadius = 18;
     self.autoHeight.constant = DScreenWidth/381*253;
     [QABLEAdapter sharedBLEAdapter].addViewController = self;
+    [CommonCore setNavRight:self image:@"" title:@"s测试" action:@selector(ceshiWebView)];
 
+}
+
+- (void)ceshiWebView {
+    QACeShiViewController *ceshiVC = [[QACeShiViewController alloc] init];
+    ceshiVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:ceshiVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

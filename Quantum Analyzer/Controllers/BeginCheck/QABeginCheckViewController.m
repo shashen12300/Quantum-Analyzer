@@ -160,17 +160,61 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     }
 
 }
+    
+    
+//- (IBAction)checkBtnClick:(UIButton *)sender {
+//        if (sender.tag==0) {
+//            _checkTime = 0;
+//            _shiImageView.image = [UIImage imageNamed:@"6"];
+//            _geImageView.image = [UIImage imageNamed:@"0"];
+//            
+//            _buttonType = StopCheck;
+//            [_timer setFireDate:[NSDate distantFuture]];
+//            [[QABLEAdapter sharedBLEAdapter] stopCheck];
+//            [self.moviePlayer stop];
+//            [_gifView stop];
+//            _moviePlayer.view.hidden = YES;
+//            _beginBtn.selected =NO;
+//            _stopBtn.selected = NO;
+//            //保存结果
+//            _buttonType = SaveCheck;
+//            NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];
+//            _record = [[Record alloc] init];
+//            _record.time = [CommonCore currentTime];
+//            _record.own_id = userID;
+//            _record.report = [[HealthReportManager sharedManager]saveUserDataToSqlite:_record.time];
+//            [[DataBase sharedDataBase] addRecord:_record toPerson:_person];
+//            _reportResultLabel.text = @"全部检测完成";
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"报告生成成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//            [alertView show];
+//            
+//            return;
+//        }else if (sender.tag==2) {
+//            _beginBtn.selected = NO;
+//            _stopBtn.selected = NO;
+//            _saveBtn.selected = NO;
+//            //查看检测报告
+//            QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
+//            healthVC.report = _record.report;
+//            healthVC.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:healthVC animated:YES];
+//            return;
+//        }
+//        
+//    }
 
 - (IBAction)checkBtnClick:(UIButton *)sender {
     if (![CommonCore queryMessageKey:CurrentUserID]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录账户，再进行检测" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
         return;
-    }else if (!_t.activePeripheral) {
+    }
+    else if (!_t.activePeripheral) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
         return;
     }
+    
     if (sender.selected == YES) {
         return;
     }
@@ -226,7 +270,6 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 }
 
 
-
 /* 复位状态*/
 - (void)resetAllState {
     //关闭定时器
@@ -246,7 +289,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     NSString *valueStr = [self convertDataToHexStr:[characteristic value]];
     valueStr = [valueStr substringToIndex:10];
     NSInteger value = [[CommonCore convertHexStrToString:valueStr] integerValue];
-//   NSInteger value = 15000;
+   //NSInteger value = 15000;
     NSLog(@"valueStr: %@   value: %ld",valueStr,value);
 
     if (_buttonType == WaitCheck) {

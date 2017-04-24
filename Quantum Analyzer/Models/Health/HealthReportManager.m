@@ -80,11 +80,18 @@ static HealthReportManager *_healthReportManager = nil;
     
 }
 
-
+/* 生成表格*/
 - (NSString *)htmlStr:(ReportContentData *)reportContentData {
     NSString *htmls = [NSString stringWithFormat:@"<TR class=td align=left bgcolor=EBF5FB><TD class=td align=middle>%@ </TD><TD class=td align=middle>%@ - %@ </TD><TD class=td align=middle>%@ </TD><TD class=td align=middle>%@</TD></TR>",reportContentData.name,reportContentData.minValue,reportContentData.maxValue,reportContentData.realValue,reportContentData.resultState];
     return htmls;
 }
+/* 生成曲线数据*/
+- (NSString *)graphHtml:(ReportGraphData *)reportContentData {
+    NSString *htmls = [NSString stringWithFormat:@"        { name: \"%@\",normal_min: \"%@\",normal_max: \"%@\",abnormal_min: \"%@\",abnormal_max: \"%@\",reality: \"%@\",result: \"%@\",resultColor: \"%@\",},",reportContentData.name,reportContentData.minValue,reportContentData.maxValue,reportContentData.minAbnormalValue,reportContentData.maxAbnormalValue,reportContentData.realValue,reportContentData.resultDescription,reportContentData.resultState];
+    return htmls;
+}
+
+
 
 /* 获取所有综合表单信息*/
 - (NSArray *)allCollectMessage {
@@ -283,6 +290,161 @@ static HealthReportManager *_healthReportManager = nil;
     return resultStr;
 }
 
+- (NSString *)getCheckResultColor:(NSString *)content State:(NSInteger)state {
+    NSString *resultStr = @"";
+    if (state == CHECK_RESULT_NORMAL) {
+        resultStr = @"#00FF00";
+    }else if (state == CHECK_RESULT_MIN_ABNORMAL){
+        resultStr = @"#3368A1";
+    }else if (state == CHECK_RESULT_MEDIUM_ABNORMAL){
+        resultStr = @"#DBB403";
+    }else if (state == CHECK_RESULT_MAX_ABNORMAL){
+        resultStr = @"#C60709";
+    }else {
+        resultStr = @"#C60709";
+    }
+    return resultStr;
+}
+/* 检测报告曲线图*/
+- (NSString *)getCheckReportGraphHtml:(NSString *)mainItemID RecordTime:(NSString *)recordTime{
+    NSString *htmlStr = @"";
+    Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
+    NSArray *allSubItems = [[NSArray alloc] initWithArray:[[TblSubItemCaseManager sharedManager] getSingleReportAllSubItem:mainItemID]];
+    for (TblSubItemCase *subItemCase in allSubItems) {
+        if ([subItemCase isKindOfClass:[TblSubItemCase class]]) {
+            TblMeasData *measData = [[TblMeasDataManager sharedManager] getHealthStateSubItemID:subItemCase.n_SubItemID Age:person.age type:person.health];
+            NSInteger n_Result = [measData.n_Result integerValue];
+            ReportGraphData *report = [[ReportGraphData alloc] init];
+            NSInteger minValue=0,maxValue=0;
+            if ([subItemCase.n_NormaBegin isEqualToString:@"0"]) {
+                switch (n_Result) {
+                    case 0:
+                    {
+                        minValue = [subItemCase.db_SubItemVal0 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_NormalCall State:CHECK_RESULT_NORMAL];
+                        report.resultDescription = subItemCase.str_NormalCall;
+
+                        break;
+                    }
+                    case 1:
+                    {
+                        minValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal2 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_GentalCall State:CHECK_RESULT_MIN_ABNORMAL];
+                        report.resultDescription = subItemCase.str_GentalCall;
+
+                        break;
+                    }
+                    case 2:
+                    {
+                        minValue = [subItemCase.db_SubItemVal2 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_TensionCall State:CHECK_RESULT_MEDIUM_ABNORMAL];
+                        report.resultDescription = subItemCase.str_TensionCall;
+
+                        break;
+                    }
+                    case 3:
+                    {
+                        minValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+                        maxValue = subItemCase.db_SubItemVal0 < subItemCase.db_SubItemVal3 ? minValue + 1000 : MAX(minValue - 1000,1000/arc4random());
+                        report.resultState = [self getCheckResultColor:subItemCase.str_SeriousCall State:CHECK_RESULT_MAX_ABNORMAL];
+                        report.resultDescription = subItemCase.str_SeriousCall;
+
+                        break;
+                    }
+                    default:
+                    break;
+                }
+                
+                if (minValue > maxValue) {
+                    NSInteger tempValue = minValue;
+                    minValue = maxValue;
+                    maxValue = tempValue;
+                }
+                NSInteger lengthValue = maxValue - minValue;
+                CGFloat realValue = (minValue + arc4random()%lengthValue)/1000.0;
+                report.name = subItemCase.str_SubItemName;
+                report.minValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
+                report.maxValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
+                report.realValue = [NSString stringWithFormat:@"%.3f",realValue];
+                report.minAbnormalValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
+                report.maxAbnormalValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
+                NSString *subItemStr = [self graphHtml:report];
+                htmlStr = [htmlStr stringByAppendingString:subItemStr];
+                
+                if (n_Result >= 2) {
+                    CollectModel *collect = [[CollectModel alloc] init];
+                    collect.n_MainItemID = mainItemID;
+                    collect.str_SubItemName = report.name;
+                    collect.db_subItemReal = report.realValue;
+                    collect.db_SbuItemRange = [NSString stringWithFormat:@"%@-%@",report.minValue,report.maxValue];
+                    collect.str_Record_Time = recordTime;
+                    collect.n_Result = measData.n_Result;
+                    [[HealthReportManager sharedManager]addCollection:collect];
+                }
+            }
+            else {
+                
+                switch (n_Result) {
+                    case -1:
+                    {
+                        minValue = [subItemCase.db_SubItemVal0 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_GentalCall State:CHECK_RESULT_MIN_ABNORMAL];
+                        report.resultDescription = subItemCase.str_GentalCall;
+
+                        break;
+                    }
+                    case 0:
+                    {
+                        minValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal2 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_NormalCall State:CHECK_RESULT_NORMAL];
+                        report.resultDescription = subItemCase.str_NormalCall;
+
+                        break;
+                    }
+                    case 1:
+                    {
+                        minValue = [subItemCase.db_SubItemVal2 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_TensionCall State:CHECK_RESULT_MEDIUM_ABNORMAL];
+                        report.resultDescription = subItemCase.str_TensionCall;
+
+                        
+                        break;
+                    }
+                    default:
+                    break;
+                }
+                
+                if (minValue > maxValue) {
+                    NSInteger tempValue = minValue;
+                    minValue = maxValue;
+                    maxValue = tempValue;
+                }
+                NSInteger lengthValue = maxValue - minValue;
+                CGFloat realValue = (minValue + arc4random()%lengthValue)/1000.0;
+                report.name = subItemCase.str_SubItemName;
+                report.minValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal1 floatValue], [subItemCase.db_SubItemVal2 floatValue])];
+                report.maxValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal1 floatValue], [subItemCase.db_SubItemVal2 floatValue])];
+                report.realValue = [NSString stringWithFormat:@"%.3f",realValue];
+                report.minAbnormalValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
+                report.maxAbnormalValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
+                NSString *subItemStr = [self graphHtml:report];
+                htmlStr = [htmlStr stringByAppendingString:subItemStr];
+                
+            }
+            
+        }
+        
+    }
+    
+    return htmlStr;
+}
+
 
 - (NSString *)saveUserDataToSqlite:(NSString *)time {
     Person *person = [[DataBase sharedDataBase]getCurrentLoginUser];
@@ -305,7 +467,8 @@ static HealthReportManager *_healthReportManager = nil;
     }
     for (ReportList *reportList in sourceArray) {
         if ([reportList isKindOfClass:[ReportList class]]) {
-            NSString *str = [[HealthReportManager sharedManager] getCheckReportHtml:reportList.reportID RecordTime:time];
+//            NSString *str = [[HealthReportManager sharedManager] getCheckReportHtml:reportList.reportID RecordTime:time];
+            NSString *str = [[HealthReportManager sharedManager] getCheckReportGraphHtml:reportList.reportID RecordTime:time];
             health.table = str;
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:reportList.reportName ofType:@"htm"];
             NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];

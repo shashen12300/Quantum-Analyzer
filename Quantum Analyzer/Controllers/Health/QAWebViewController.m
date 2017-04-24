@@ -40,34 +40,36 @@
     if (_htmlString) {
         [webView loadHTMLString:_htmlString baseURL:baseURL];
         
-    }else {
-        Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
-
-        NSString *appString = [self demoFormatWithPerson:person];
-        [webView loadHTMLString:appString baseURL:baseURL];
-        
     }
+    
+//    else {
+//        Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
+//
+//        NSString *appString = [self demoFormatWithPerson:person];
+//        [webView loadHTMLString:appString baseURL:baseURL];
+//        
+//    }
     
 }
 
-- (NSString *)demoFormatWithPerson:(Person *)person {
-    HealthModel *health = [[HealthModel alloc] init];
-    health.sex = person.sex;
-    health.name = person.name;
-    health.age = [self getAgeDate:person.date];
-    health.weight = person.weight;
-    health.stature = person.stature;
-    health.time = person.date;
-    health.health = person.health;
-    NSString *str = [[HealthReportManager sharedManager] getCheckReportHtml:_reportList.reportID];
-    health.table = str;
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:_reportList.reportName ofType:@"htm"];
-    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    template = [template stringByReplacingOccurrencesOfString:@"{{table}}" withString:str];
-    NSDictionary *renderObject = [CommonCore dictionaryWithModel:health];
-    NSString *content = [GRMustacheTemplate renderObject:renderObject fromString:template error:nil];
-    return content;
-}
+//- (NSString *)demoFormatWithPerson:(Person *)person {
+//    HealthModel *health = [[HealthModel alloc] init];
+//    health.sex = person.sex;
+//    health.name = person.name;
+//    health.age = [self getAgeDate:person.date];
+//    health.weight = person.weight;
+//    health.stature = person.stature;
+//    health.time = person.date;
+//    health.health = person.health;
+//    NSString *str = [[HealthReportManager sharedManager] getCheckReportHtml:_reportList.reportID];
+//    health.table = str;
+//    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:_reportList.reportName ofType:@"htm"];
+//    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+//    template = [template stringByReplacingOccurrencesOfString:@"{{table}}" withString:str];
+//    NSDictionary *renderObject = [CommonCore dictionaryWithModel:health];
+//    NSString *content = [GRMustacheTemplate renderObject:renderObject fromString:template error:nil];
+//    return content;
+//}
 
 
 - (NSString *)getAgeDate:(NSString *)date {

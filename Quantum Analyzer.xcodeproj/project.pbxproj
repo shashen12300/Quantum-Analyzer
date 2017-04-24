@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		7AD3379C0CEE01ADBEE5E53E /* libPods-Quantum Analyzer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82DE8A9AFF128D7210D3E43 /* libPods-Quantum Analyzer.a */; };
+		A004ACE31E9A225C00811E96 /* 心脑血管检测报告2.htm in Resources */ = {isa = PBXBuildFile; fileRef = A004ACE21E9A225C00811E96 /* 心脑血管检测报告2.htm */; };
 		A00AE7151E8D54150009D5DF /* end.gif in Resources */ = {isa = PBXBuildFile; fileRef = A00AE7131E8D54150009D5DF /* end.gif */; };
 		A00AE7161E8D54150009D5DF /* QQ20170328-230311.png in Resources */ = {isa = PBXBuildFile; fileRef = A00AE7141E8D54150009D5DF /* QQ20170328-230311.png */; };
-		A013B49B1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm in Resources */ = {isa = PBXBuildFile; fileRef = A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */; };
+		A0123AEB1E9BC2AD0069775A /* 心脑血管检测报告3.htm in Resources */ = {isa = PBXBuildFile; fileRef = A0123AEA1E9BC2AD0069775A /* 心脑血管检测报告3.htm */; };
+		A0123AED1E9BCC5F0069775A /* big.png in Resources */ = {isa = PBXBuildFile; fileRef = A0123AEC1E9BCC5F0069775A /* big.png */; };
+		A029105A1E951E850074A9DD /* QACeShiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02910591E951E850074A9DD /* QACeShiViewController.m */; };
+		A029105C1E9521A20074A9DD /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A029105B1E9521A20074A9DD /* index.html */; };
+		A02910601E9525F00074A9DD /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A029105F1E9525F00074A9DD /* background.png */; };
+		A02910641E952A6C0074A9DD /* 1-心脑血管检测报告的-副本.htm in Resources */ = {isa = PBXBuildFile; fileRef = A02910631E952A6C0074A9DD /* 1-心脑血管检测报告的-副本.htm */; };
+		A02910661E953B2E0074A9DD /* PageBg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A02910651E953B2E0074A9DD /* PageBg1.jpg */; };
+		A02910681E953F010074A9DD /* 1-心脑血管检测报告的-副本1.htm in Resources */ = {isa = PBXBuildFile; fileRef = A02910671E953F010074A9DD /* 1-心脑血管检测报告的-副本1.htm */; };
+		A029106C1E9542520074A9DD /* 1-心脑血管检测报告的-副本2.htm in Resources */ = {isa = PBXBuildFile; fileRef = A029106B1E9542520074A9DD /* 1-心脑血管检测报告的-副本2.htm */; };
+		A029106E1E9545E30074A9DD /* PageBg2.png in Resources */ = {isa = PBXBuildFile; fileRef = A029106D1E9545E30074A9DD /* PageBg2.png */; };
+		A02910701E9547110074A9DD /* 1-心脑血管检测报告的-副本3.htm in Resources */ = {isa = PBXBuildFile; fileRef = A029106F1E9547110074A9DD /* 1-心脑血管检测报告的-副本3.htm */; };
+		A02910721E954A0F0074A9DD /* 1-心脑血管检测报告的-副本5.htm in Resources */ = {isa = PBXBuildFile; fileRef = A02910711E954A0F0074A9DD /* 1-心脑血管检测报告的-副本5.htm */; };
 		A02BE5E31DFCFC6100398D42 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E21DFCFC6100398D42 /* CoreBluetooth.framework */; };
 		A02BE5E51DFCFC6E00398D42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */; };
 		A02BE5EE1DFD024300398D42 /* QABLEAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BE5ED1DFD024300398D42 /* QABLEAdapter.m */; };
 		A04353301E1C0A1800A9BDF8 /* 量子检测综合报告单.htm in Resources */ = {isa = PBXBuildFile; fileRef = A043532F1E1C0A1800A9BDF8 /* 量子检测综合报告单.htm */; };
+		A0595D0F1E9D0D1200045F25 /* 心脑血管检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A0595D0E1E9D0D1200045F25 /* 心脑血管检测报告.htm */; };
 		A059F8741DFEA3930065BADE /* QABeginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A059F8721DFEA3930065BADE /* QABeginCheckViewController.m */; };
 		A059F8751DFEA3930065BADE /* QABeginCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A059F8731DFEA3930065BADE /* QABeginCheckViewController.xib */; };
 		A06FA2D61E163EA800C661E7 /* Mark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29A1E163EA800C661E7 /* Mark.jpg */; };
-		A06FA2D71E163EA800C661E7 /* PageBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29B1E163EA800C661E7 /* PageBg.jpg */; };
 		A06FA2D81E163EA800C661E7 /* YC00.gif in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29C1E163EA800C661E7 /* YC00.gif */; };
 		A06FA2D91E163EA800C661E7 /* YC01.gif in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29D1E163EA800C661E7 /* YC01.gif */; };
 		A06FA2DA1E163EA800C661E7 /* YC02.gif in Resources */ = {isa = PBXBuildFile; fileRef = A06FA29E1E163EA800C661E7 /* YC02.gif */; };
@@ -44,7 +56,6 @@
 		A06FA2EE1E163EA800C661E7 /* 妇科检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B21E163EA800C661E7 /* 妇科检测报告.htm */; };
 		A06FA2EF1E163EA800C661E7 /* 小儿多动症检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B31E163EA800C661E7 /* 小儿多动症检测报告.htm */; };
 		A06FA2F01E163EA800C661E7 /* 微量元素检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B41E163EA800C661E7 /* 微量元素检测报告.htm */; };
-		A06FA2F11E163EA800C661E7 /* 心脑血管检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B51E163EA800C661E7 /* 心脑血管检测报告.htm */; };
 		A06FA2F21E163EA800C661E7 /* 月经周期检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B61E163EA800C661E7 /* 月经周期检测报告.htm */; };
 		A06FA2F31E163EA800C661E7 /* 氨基酸检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B71E163EA800C661E7 /* 氨基酸检测报告.htm */; };
 		A06FA2F41E163EA800C661E7 /* 甲状腺检测报告.htm in Resources */ = {isa = PBXBuildFile; fileRef = A06FA2B81E163EA800C661E7 /* 甲状腺检测报告.htm */; };
@@ -154,19 +165,32 @@
 
 /* Begin PBXFileReference section */
 		2417A77F3DD4FB496345F8BF /* Pods-Quantum Analyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.debug.xcconfig"; sourceTree = "<group>"; };
+		A004ACE21E9A225C00811E96 /* 心脑血管检测报告2.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "心脑血管检测报告2.htm"; sourceTree = "<group>"; };
 		A00AE7131E8D54150009D5DF /* end.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = end.gif; sourceTree = "<group>"; };
 		A00AE7141E8D54150009D5DF /* QQ20170328-230311.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ20170328-230311.png"; sourceTree = "<group>"; };
-		A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本.htm"; sourceTree = "<group>"; };
+		A0123AEA1E9BC2AD0069775A /* 心脑血管检测报告3.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "心脑血管检测报告3.htm"; sourceTree = "<group>"; };
+		A0123AEC1E9BCC5F0069775A /* big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big.png; sourceTree = "<group>"; };
+		A02910581E951E850074A9DD /* QACeShiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QACeShiViewController.h; sourceTree = "<group>"; };
+		A02910591E951E850074A9DD /* QACeShiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QACeShiViewController.m; sourceTree = "<group>"; };
+		A029105B1E9521A20074A9DD /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		A029105F1E9525F00074A9DD /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A02910631E952A6C0074A9DD /* 1-心脑血管检测报告的-副本.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本.htm"; sourceTree = "<group>"; };
+		A02910651E953B2E0074A9DD /* PageBg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PageBg1.jpg; sourceTree = "<group>"; };
+		A02910671E953F010074A9DD /* 1-心脑血管检测报告的-副本1.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本1.htm"; sourceTree = "<group>"; };
+		A029106B1E9542520074A9DD /* 1-心脑血管检测报告的-副本2.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本2.htm"; sourceTree = "<group>"; };
+		A029106D1E9545E30074A9DD /* PageBg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PageBg2.png; sourceTree = "<group>"; };
+		A029106F1E9547110074A9DD /* 1-心脑血管检测报告的-副本3.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本3.htm"; sourceTree = "<group>"; };
+		A02910711E954A0F0074A9DD /* 1-心脑血管检测报告的-副本5.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "1-心脑血管检测报告的-副本5.htm"; sourceTree = "<group>"; };
 		A02BE5E21DFCFC6100398D42 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A02BE5E41DFCFC6E00398D42 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A02BE5EC1DFD024300398D42 /* QABLEAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QABLEAdapter.h; sourceTree = "<group>"; };
 		A02BE5ED1DFD024300398D42 /* QABLEAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QABLEAdapter.m; sourceTree = "<group>"; };
 		A043532F1E1C0A1800A9BDF8 /* 量子检测综合报告单.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "量子检测综合报告单.htm"; sourceTree = "<group>"; };
+		A0595D0E1E9D0D1200045F25 /* 心脑血管检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "心脑血管检测报告.htm"; sourceTree = "<group>"; };
 		A059F8711DFEA3930065BADE /* QABeginCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QABeginCheckViewController.h; sourceTree = "<group>"; };
 		A059F8721DFEA3930065BADE /* QABeginCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QABeginCheckViewController.m; sourceTree = "<group>"; };
 		A059F8731DFEA3930065BADE /* QABeginCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QABeginCheckViewController.xib; sourceTree = "<group>"; };
 		A06FA29A1E163EA800C661E7 /* Mark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mark.jpg; sourceTree = "<group>"; };
-		A06FA29B1E163EA800C661E7 /* PageBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PageBg.jpg; sourceTree = "<group>"; };
 		A06FA29C1E163EA800C661E7 /* YC00.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = YC00.gif; sourceTree = "<group>"; };
 		A06FA29D1E163EA800C661E7 /* YC01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = YC01.gif; sourceTree = "<group>"; };
 		A06FA29E1E163EA800C661E7 /* YC02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = YC02.gif; sourceTree = "<group>"; };
@@ -192,7 +216,6 @@
 		A06FA2B21E163EA800C661E7 /* 妇科检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "妇科检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2B31E163EA800C661E7 /* 小儿多动症检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "小儿多动症检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2B41E163EA800C661E7 /* 微量元素检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "微量元素检测报告.htm"; sourceTree = "<group>"; };
-		A06FA2B51E163EA800C661E7 /* 心脑血管检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "心脑血管检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2B61E163EA800C661E7 /* 月经周期检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "月经周期检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2B71E163EA800C661E7 /* 氨基酸检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "氨基酸检测报告.htm"; sourceTree = "<group>"; };
 		A06FA2B81E163EA800C661E7 /* 甲状腺检测报告.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "甲状腺检测报告.htm"; sourceTree = "<group>"; };
@@ -389,8 +412,10 @@
 		A06FA2951E163EA800C661E7 /* QMAnalyzer_20160614-男 */ = {
 			isa = PBXGroup;
 			children = (
+				A029106D1E9545E30074A9DD /* PageBg2.png */,
+				A02910651E953B2E0074A9DD /* PageBg1.jpg */,
+				A029105B1E9521A20074A9DD /* index.html */,
 				A06FA29A1E163EA800C661E7 /* Mark.jpg */,
-				A06FA29B1E163EA800C661E7 /* PageBg.jpg */,
 				A06FA29C1E163EA800C661E7 /* YC00.gif */,
 				A06FA29D1E163EA800C661E7 /* YC01.gif */,
 				A06FA29E1E163EA800C661E7 /* YC02.gif */,
@@ -404,9 +429,18 @@
 				A06FA2A61E163EA800C661E7 /* YCMark1.jpg */,
 				A06FA2A71E163EA800C661E7 /* YCMark2.jpg */,
 				A06FA2A81E163EA800C661E7 /* YCMark3.jpg */,
+				A029105F1E9525F00074A9DD /* background.png */,
 				A06FA2A91E163EA800C661E7 /* YCMark4.jpg */,
-				A013B49A1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm */,
+				A0123AEC1E9BCC5F0069775A /* big.png */,
+				A029106F1E9547110074A9DD /* 1-心脑血管检测报告的-副本3.htm */,
+				A029106B1E9542520074A9DD /* 1-心脑血管检测报告的-副本2.htm */,
+				A02910671E953F010074A9DD /* 1-心脑血管检测报告的-副本1.htm */,
+				A02910631E952A6C0074A9DD /* 1-心脑血管检测报告的-副本.htm */,
+				A02910711E954A0F0074A9DD /* 1-心脑血管检测报告的-副本5.htm */,
 				A06FA2AA1E163EA800C661E7 /* 乳腺检测报告.htm */,
+				A0595D0E1E9D0D1200045F25 /* 心脑血管检测报告.htm */,
+				A0123AEA1E9BC2AD0069775A /* 心脑血管检测报告3.htm */,
+				A004ACE21E9A225C00811E96 /* 心脑血管检测报告2.htm */,
 				A06FA2AB1E163EA800C661E7 /* 人体成分检测报告.htm */,
 				A06FA2AC1E163EA800C661E7 /* 人体毒素检测报告.htm */,
 				A06FA2AD1E163EA800C661E7 /* 免疫系统检测报告.htm */,
@@ -417,7 +451,6 @@
 				A06FA2B21E163EA800C661E7 /* 妇科检测报告.htm */,
 				A06FA2B31E163EA800C661E7 /* 小儿多动症检测报告.htm */,
 				A06FA2B41E163EA800C661E7 /* 微量元素检测报告.htm */,
-				A06FA2B51E163EA800C661E7 /* 心脑血管检测报告.htm */,
 				A06FA2B61E163EA800C661E7 /* 月经周期检测报告.htm */,
 				A06FA2B71E163EA800C661E7 /* 氨基酸检测报告.htm */,
 				A06FA2B81E163EA800C661E7 /* 甲状腺检测报告.htm */,
@@ -616,6 +649,8 @@
 				A0A41D481DFAA6A1008F0682 /* QAConfigViewController.xib */,
 				A098B5221E28C46100C0B761 /* QAPasswordViewController.h */,
 				A098B5231E28C46100C0B761 /* QAPasswordViewController.m */,
+				A02910581E951E850074A9DD /* QACeShiViewController.h */,
+				A02910591E951E850074A9DD /* QACeShiViewController.m */,
 			);
 			path = AddDevice;
 			sourceTree = "<group>";
@@ -845,7 +880,7 @@
 				TargetAttributes = {
 					A0C768B41DF3F2CB009380D6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = X3U2P9UCFT;
+						DevelopmentTeam = GQ5DN2772Z;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -876,6 +911,7 @@
 				A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */,
 				A06FA2D61E163EA800C661E7 /* Mark.jpg in Resources */,
 				A06FA3021E163EA800C661E7 /* 胶原蛋白检测报告.htm in Resources */,
+				A02910601E9525F00074A9DD /* background.png in Resources */,
 				A06FA2FF1E163EA800C661E7 /* 胃肠功能检测报告.htm in Resources */,
 				A0E198941E14FCD60059E966 /* ReportList.sqlite in Resources */,
 				A06FA2F01E163EA800C661E7 /* 微量元素检测报告.htm in Resources */,
@@ -905,7 +941,10 @@
 				A06FA2F81E163EA800C661E7 /* 精子和精液检测报告.htm in Resources */,
 				A09102B91E90B99600482C03 /* QANewHealthViewController.xib in Resources */,
 				A06FA2F71E163EA800C661E7 /* 眼部检测报告.htm in Resources */,
+				A0595D0F1E9D0D1200045F25 /* 心脑血管检测报告.htm in Resources */,
 				A0C768C51DF3F2CB009380D6 /* Assets.xcassets in Resources */,
+				A0123AEB1E9BC2AD0069775A /* 心脑血管检测报告3.htm in Resources */,
+				A029106E1E9545E30074A9DD /* PageBg2.png in Resources */,
 				A06FA2E61E163EA800C661E7 /* 乳腺检测报告.htm in Resources */,
 				A0C769131DF408DC009380D6 /* QASettingViewController.xib in Resources */,
 				A06FA2DB1E163EA800C661E7 /* YC03.gif in Resources */,
@@ -915,6 +954,7 @@
 				A06FA2EA1E163EA800C661E7 /* 内分泌系统检测报告.htm in Resources */,
 				A06FA2D81E163EA800C661E7 /* YC00.gif in Resources */,
 				A00AE7161E8D54150009D5DF /* QQ20170328-230311.png in Resources */,
+				A02910661E953B2E0074A9DD /* PageBg1.jpg in Resources */,
 				A06FA2DC1E163EA800C661E7 /* YC04.gif in Resources */,
 				A06FA30B1E163EA800C661E7 /* 风湿骨病检测报告.htm in Resources */,
 				A0C768F51DF4085A009380D6 /* QAAddViewController.xib in Resources */,
@@ -922,9 +962,11 @@
 				A06FA2E11E163EA800C661E7 /* YC09.gif in Resources */,
 				A04353301E1C0A1800A9BDF8 /* 量子检测综合报告单.htm in Resources */,
 				A06FA3091E163EA800C661E7 /* 重金属检测报告.htm in Resources */,
+				A02910641E952A6C0074A9DD /* 1-心脑血管检测报告的-副本.htm in Resources */,
 				A00AE7151E8D54150009D5DF /* end.gif in Resources */,
 				A059F8751DFEA3930065BADE /* QABeginCheckViewController.xib in Resources */,
 				A09102B01E90B07E00482C03 /* man_2.mp4 in Resources */,
+				A02910721E954A0F0074A9DD /* 1-心脑血管检测报告的-副本5.htm in Resources */,
 				A06FA30E1E163EA800C661E7 /* 骨病检测报告.htm in Resources */,
 				A0B6A5371DF80520008205DC /* QACreatUserViewController.xib in Resources */,
 				A06FA2E01E163EA800C661E7 /* YC08.gif in Resources */,
@@ -936,11 +978,15 @@
 				A06FA3041E163EA800C661E7 /* 脑神经检测报告.htm in Resources */,
 				A0DDEB1D1DF95B4900C0DB8B /* QAHistoryViewController.xib in Resources */,
 				A06FA30C1E163EA800C661E7 /* 骨密度检测报告.htm in Resources */,
-				A06FA2F11E163EA800C661E7 /* 心脑血管检测报告.htm in Resources */,
 				A06FA3001E163EA800C661E7 /* 胆功能检测报告.htm in Resources */,
 				A06FA2F41E163EA800C661E7 /* 甲状腺检测报告.htm in Resources */,
+				A0123AED1E9BCC5F0069775A /* big.png in Resources */,
+				A004ACE31E9A225C00811E96 /* 心脑血管检测报告2.htm in Resources */,
 				A06FA2EC1E163EA800C661E7 /* 基本体质检测报告.htm in Resources */,
+				A029106C1E9542520074A9DD /* 1-心脑血管检测报告的-副本2.htm in Resources */,
 				A06FA2EE1E163EA800C661E7 /* 妇科检测报告.htm in Resources */,
+				A02910681E953F010074A9DD /* 1-心脑血管检测报告的-副本1.htm in Resources */,
+				A02910701E9547110074A9DD /* 1-心脑血管检测报告的-副本3.htm in Resources */,
 				A09102B11E90B07E00482C03 /* man_3.mp4 in Resources */,
 				A06FA3071E163EA800C661E7 /* 辅酶检测报告.htm in Resources */,
 				A0B6A4551DF7B6AC008205DC /* QAHealthTableViewCell.xib in Resources */,
@@ -954,16 +1000,15 @@
 				A0A41D451DFA9FD9008F0682 /* QAAlertView.xib in Resources */,
 				A06FA3011E163EA800C661E7 /* 胰腺功能检测报告.htm in Resources */,
 				A0DDEB181DF944E200C0DB8B /* DateAndTimePickerView.xib in Resources */,
-				A013B49B1E8FFD92006BE531 /* 1-心脑血管检测报告的-副本.htm in Resources */,
 				A06FA2EB1E163EA800C661E7 /* 前列腺检测报告.htm in Resources */,
 				A0C768C31DF3F2CB009380D6 /* Main.storyboard in Resources */,
+				A029105C1E9521A20074A9DD /* index.html in Resources */,
 				A06FA2ED1E163EA800C661E7 /* 大肠检测检测报告.htm in Resources */,
 				A06FA2E71E163EA800C661E7 /* 人体成分检测报告.htm in Resources */,
 				A06FA2F91E163EA800C661E7 /* 经络检测报告.htm in Resources */,
 				A06FA2E41E163EA800C661E7 /* YCMark3.jpg in Resources */,
 				A06FA2E21E163EA800C661E7 /* YCMark1.jpg in Resources */,
 				A06FA2FE1E163EA800C661E7 /* 肾脏功能检测报告.htm in Resources */,
-				A06FA2D71E163EA800C661E7 /* PageBg.jpg in Resources */,
 				A06FA3051E163EA800C661E7 /* 血糖检测报告.htm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1024,6 +1069,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E198921E14FA710059E966 /* Person.m in Sources */,
+				A029105A1E951E850074A9DD /* QACeShiViewController.m in Sources */,
 				A0C768C01DF3F2CB009380D6 /* ViewController.m in Sources */,
 				A0A41D391DFA6E15008F0682 /* HealthModel.m in Sources */,
 				A0C768E01DF405F5009380D6 /* QARootViewController.m in Sources */,
@@ -1190,14 +1236,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X3U2P9UCFT;
+				DEVELOPMENT_TEAM = GQ5DN2772Z;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.scc.Quantum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1208,14 +1254,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X3U2P9UCFT;
+				DEVELOPMENT_TEAM = GQ5DN2772Z;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.scc.Quantum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1267,14 +1313,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X3U2P9UCFT;
+				DEVELOPMENT_TEAM = GQ5DN2772Z;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.scc.Quantum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "ad Hoc";
